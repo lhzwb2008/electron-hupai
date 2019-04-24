@@ -29,10 +29,10 @@ function createWindow() {
     height: 727,
     x: 0,
     y: 0,
-    // movable: false,
-    // resizable: false,
+    movable: false,
+    resizable: false,
     maximizable: false,
-    // alwaysOnTop:true,
+    alwaysOnTop:true,
     fullscreenable: false,
     webPreferences: {
       plugins: true,

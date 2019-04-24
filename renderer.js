@@ -11,14 +11,14 @@ setTimeout(function () {
     robot.mouseClick();
 }, 2100);
 
-//输入账号
-setTimeout(function () {
-    robot.moveMouse(595, 270);
-    robot.mouseClick();
-    robot.typeStringDelayed('55170561');
-    robot.keyTap('tab');
-    robot.typeStringDelayed('2036');
-}, 2500);
+// //输入账号
+// setTimeout(function () {
+//     robot.moveMouse(595, 270);
+//     robot.mouseClick();
+//     robot.typeStringDelayed('55170561');
+//     robot.keyTap('tab');
+//     robot.typeStringDelayed('2036');
+// }, 2500);
 
 $(function () {
     $("#start").click(function () {
@@ -35,7 +35,7 @@ $(function () {
             robot.moveMouse(785, 433);
             robot.mouseClick();
             robot.moveMouseSmooth(718, 435);
-            robot.mouseClick();
+            robot.mouseClick(); 
         });
         var rule2 = new schedule.RecurrenceRule();
         rule2.hour = $("#hour").val();
