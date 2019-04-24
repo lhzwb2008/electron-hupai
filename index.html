@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>拍牌出价助手</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" crossorigin="anonymous">
+  <script type="text/javascript">
+    function startTime() {
+      var today = new Date()
+      var h = today.getHours()
+      var m = today.getMinutes()
+      var s = today.getSeconds()
+      // add a zero in front of numbers<10
+      m = checkTime(m)
+      s = checkTime(s)
+      document.getElementById('txt').innerHTML = h + ":" + m + ":" + s
+      t = setTimeout('startTime()', 500)
+    }
+
+    function checkTime(i) {
+      if (i < 10) { i = "0" + i }
+      return i
+    }
+  </script>
+</head>
+
+<body onload="startTime()">
+
+  <div style="position: absolute; left: 900px;  top: 0px;">
+    <div>
+      <h5>时间校对:</h5>
+      <h5 id="txt"></h5>
+    </div>
+    <br>
+    <h5>二阶段自动出价策略设置:</h5>
+    <div class="input-group">
+      <input type="text" class="form-control" value="11" id="hour" >
+      <span class="input-group-text">时</span>
+      <input type="text" class="form-control" value="29" id="minute">
+      <span class="input-group-text">分</span>
+      <input type="text" class="form-control" value="49" id="fromsecond">
+      <span class="input-group-text">秒</span>
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-text">加价</span>
+      <input type="text" class="form-control" value="700" id="addmoney">
+      <span class="input-group-text">在</span>
+      <input type="text" class="form-control" value="58" id="tosecond">
+      <span class="input-group-text">秒提交</span>
+    </div>
+    <br>
+    <div>
+      <button id="start" type="button" class="btn btn-primary">开始</button>
+    </div>
+  </div>
+
+
+  <script src="node_modules/jquery/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+  <script>
+    window.$ = window.jQuery = require('jquery');
+  </script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script>
+    require('./renderer.js')
+  </script>
+
+</body>
+
+</html>

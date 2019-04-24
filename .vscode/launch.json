@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Main Process",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": "/usr/local/bin/electron",
+      "args": [
+        ".",
+        "--enable-logging"
+      ],
+      "outputCapture": "std"
+    }
+  ]
+}
