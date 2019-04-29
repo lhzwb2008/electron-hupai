@@ -28,6 +28,9 @@
 <body onload="startTime()">
 
   <div style="position: absolute; left: 900px;  top: 0px;">
+    <div>
+      <strong>软件时间</strong><span id="txt"></span>
+    </div>
     <div id="message">
     </div>
     <div>
@@ -35,37 +38,23 @@
         1 正式拍牌服务器只在拍牌日开通，平时会自动切换到测试服务器，方便大家测试使用
       </p>
       <p class="text-danger">
-        2 一阶段拍卖请自行输入价格，软件仅仅作用与二阶段最后出价
+        2 一阶段拍卖请自行输入价格，软件仅仅作用于二阶段最后出价
       </p>
       <p class="text-danger">
         3 二阶段拍卖设置好策略后等待输入验证码即可，输入完移开双手，全程不要点击确认键！全程不要点击确认键！全程不要点击确认键！
       </p>
     </div>
-    <div>
-      <p>软件时间: <span id="txt" class="text-primary"></span></p>
-    </div>
-    <br>
-    <h5>二阶段自动出价策略设置:</h5>
-    <div class="dropdown">
-        <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">主题
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">Java</a>
-            </li>
-            <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">数据挖掘</a>
-            </li>
-            <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">数据通信/网络</a>
-            </li>
-            <li role="presentation" class="divider"></li>
-            <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">分离的链接</a>
-            </li>
-        </ul>
-    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="strategy">自动出价策略</label>
+        </div>
+        <select class="custom-select" id="strategy">
+          <option selected>请选择</option>
+          <option value="1" selected>AI策略(仅用于正式拍牌,每秒自动更新)</option>
+          <option value="2">自定义</option>
+        </select>
+      </div>
     <div class="input-group">
       <input type="text" class="form-control" value="11" id="hour">
       <span class="input-group-text">时</span>
@@ -74,7 +63,6 @@
       <input type="text" class="form-control" value="49" id="fromsecond">
       <span class="input-group-text">秒</span>
     </div>
-    <br>
     <div class="input-group">
       <span class="input-group-text">加价</span>
       <input type="text" class="form-control" value="700" id="addmoney">
@@ -93,6 +81,7 @@
   <script>
     window.$ = window.jQuery = require('jquery');
   </script>
+  <script src="node_modules/popper.js/dist/popper.min.js" crossorigin="anonymous"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script>
     require('./renderer.js')
