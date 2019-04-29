@@ -1,4 +1,5 @@
 node_modules
 out
 dist
-HupaiHelper*
+HupaiHelper-darwin-x64
+HupaiHelper-win32-x64
