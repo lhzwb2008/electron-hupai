@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, BrowserView} = require('electron')
+const { app, BrowserWindow, BrowserView } = require('electron')
 const path = require('path')
+const request = require('request')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -32,7 +33,7 @@ function createWindow() {
     movable: false,
     resizable: false,
     maximizable: false,
-    alwaysOnTop:true,
+    // alwaysOnTop:true,
     fullscreenable: false,
     webPreferences: {
       plugins: true,
@@ -58,13 +59,29 @@ function createWindow() {
   let view = new BrowserView({
     webPreferences: {
       nodeIntegration: false,
-      webSecurity:false,
-      plugins:true
+      webSecurity: false,
+      plugins: true
     }
   })
   mainWindow.setBrowserView(view)
   view.setBounds({ x: 0, y: 0, width: 900, height: 727 })
-  view.webContents.loadURL('http://test.alltobid.com/moni/gerenlogin.html',{userAgent:'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15'})
+  var onlineUrl
+  request.get('http://autohupai.top/hupai-serve/public/index/getUrl', function (error, response, body) {
+    var bodyobj = JSON.parse(body)
+    onlineUrl = bodyobj.url
+  })
+  request.get(onlineUrl, { timeout: 500 }, function (error) {
+    if (error) {
+      view.webContents.loadURL('http://test.alltobid.com/moni/gerenlogin.html', { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
+
+    } else {
+      view.webContents.loadURL(onlineUrl, { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
+    }
+  })
+
+
+
+
 }
 
 // This method will be called when Electron has finished

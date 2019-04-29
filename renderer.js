@@ -23,12 +23,12 @@ setTimeout(function () {
 
 
 $(function () {
-    request.get('http://dagongshuo.xyz/hupai-serve/public/index/getMessage', function (error, response, body) {
+    request.get('http://autohupai.top/hupai-serve/public/index/getMessage', function (error, response, body) {
         var bodyobj = JSON.parse(body)
         $("#message").html(bodyobj.message);
     });
     if ($("#strategy").val() == 1) {
-        request.get('http://dagongshuo.xyz/hupai-serve/public/index/getStrategy', function (error, response, body) {
+        request.get('http://autohupai.top/hupai-serve/public/index/getStrategy', function (error, response, body) {
             var bodyobj = JSON.parse(body)
             $("#hour").val(bodyobj.hour)
             $("#hour").attr("readonly", "readonly")
@@ -44,7 +44,7 @@ $(function () {
     }
     setInterval(function () {
         if ($("#strategy").val() == 1) {
-            request.get('http://dagongshuo.xyz/hupai-serve/public/index/getStrategy', function (error, response, body) {
+            request.get('http://autohupai.top/hupai-serve/public/index/getStrategy', function (error, response, body) {
                 var bodyobj = JSON.parse(body)
                 $("#hour").val(bodyobj.hour)
                 $("#hour").attr("readonly", "readonly")
@@ -67,7 +67,7 @@ $(function () {
             $("#tosecond").removeAttr("readonly")
             $("#addmoney").removeAttr("readonly")
         } else if($("#strategy").val() == 1){
-            request.get('http://dagongshuo.xyz/hupai-serve/public/index/getStrategy', function (error, response, body) {
+            request.get('http://autohupai.top/hupai-serve/public/index/getStrategy', function (error, response, body) {
                 var bodyobj = JSON.parse(body)
                 $("#hour").val(bodyobj.hour)
                 $("#hour").attr("readonly", "readonly")

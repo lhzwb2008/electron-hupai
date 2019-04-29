@@ -33,7 +33,7 @@ function createWindow() {
     movable: false,
     resizable: false,
     maximizable: false,
-    // alwaysOnTop:true,
+    alwaysOnTop:true,
     fullscreenable: false,
     webPreferences: {
       plugins: true,
@@ -66,7 +66,7 @@ function createWindow() {
   mainWindow.setBrowserView(view)
   view.setBounds({ x: 0, y: 0, width: 900, height: 727 })
   var onlineUrl
-  request.get('http://dagongshuo.xyz/hupai-serve/public/index/getUrl', function (error, response, body) {
+  request.get('http://autohupai.top/hupai-serve/public/index/getUrl', function (error, response, body) {
     var bodyobj = JSON.parse(body)
     onlineUrl = bodyobj.url
   })
