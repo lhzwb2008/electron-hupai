@@ -1,5 +1,6 @@
 const robot = require("robotjs");
 const schedule = require('node-schedule');
+const request = require('request')
 
 //弹窗
 setTimeout(function () {
@@ -21,6 +22,10 @@ setTimeout(function () {
 // }, 2500);
 
 $(function () {
+    request.get('http://dagongshuo.xyz/hupai-serve/public/index/getMessage', function (error, response, body) {
+        var bodyobj = JSON.parse(body)
+        $("#message").html(bodyobj.message);
+    });
     $("#start").click(function () {
         var rule1 = new schedule.RecurrenceRule();
         rule1.hour = $("#hour").val();
@@ -35,7 +40,7 @@ $(function () {
             robot.moveMouse(785, 433);
             robot.mouseClick();
             robot.moveMouseSmooth(718, 435);
-            robot.mouseClick(); 
+            robot.mouseClick();
         });
         var rule2 = new schedule.RecurrenceRule();
         rule2.hour = $("#hour").val();
