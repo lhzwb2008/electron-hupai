@@ -30,24 +30,22 @@ function createWindow() {
     height: 727,
     x: 0,
     y: 0,
-    movable: false,
-    resizable: false,
-    maximizable: false,
-    alwaysOnTop:true,
-    fullscreenable: false,
+    // movable: false,
+    // resizable: false,
+    // maximizable: false,
+    // alwaysOnTop:true,
+    // fullscreenable: false,
     webPreferences: {
       plugins: true,
       webSecurity: false
     }
   })
   // and load the index.html of the app.
-  // mainWindow.loadURL('http://test.alltobid.com/moni/gerenlogin.html',{userAgent:'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15'});
-
   // console.log(mainWindow.getPosition());
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
