@@ -3,31 +3,53 @@ const schedule = require('node-schedule');
 const request = require('request')
 switch (process.platform) {
     case 'win32':
-    var ratio=2
-    break
+        var x1 = 772
+        var y1 = 553
+        var x2 = 670
+        var y2 = 327
+        var x3 = 794
+        var y3 = 323
+        var x4 = 785
+        var y4 = 433
+        var x5 = 718
+        var y5 = 435
+        var x6 = 540
+        var y6 = 510
+        break
     case 'darwin':
-    var ratio=1
-    break
+        var x1 = 772
+        var y1 = 553
+        var x2 = 670
+        var y2 = 327
+        var x3 = 794
+        var y3 = 323
+        var x4 = 785
+        var y4 = 433
+        var x5 = 718
+        var y5 = 435
+        var x6 = 540
+        var y6 = 510
+        break
 }
 
 //弹窗
 setTimeout(function () {
-    robot.moveMouse(772*ratio, 553*ratio);
+    robot.moveMouse(x1, y1);
     robot.mouseClick();
 }, 2000);
 setTimeout(function () {
-    robot.moveMouse(772*ratio, 553*ratio);
+    robot.moveMouse(x1, y1);
     robot.mouseClick();
 }, 2100);
 
 //输入账号
-setTimeout(function () {
-    robot.moveMouse(595*ratio, 270*ratio);
-    robot.mouseClick();
-    robot.typeStringDelayed('55170561');
-    robot.keyTap('tab');
-    robot.typeStringDelayed('2036');
-}, 2500);
+// setTimeout(function () {
+//     robot.moveMouse(595*ratio, 270*ratio);
+//     robot.mouseClick();
+//     robot.typeStringDelayed('55170561');
+//     robot.keyTap('tab');
+//     robot.typeStringDelayed('2036');
+// }, 2500);
 
 
 $(function () {
@@ -74,7 +96,7 @@ $(function () {
             $("#fromsecond").removeAttr("readonly")
             $("#tosecond").removeAttr("readonly")
             $("#addmoney").removeAttr("readonly")
-        } else if($("#strategy").val() == 1){
+        } else if ($("#strategy").val() == 1) {
             request.get('http://autohupai.top/hupai-serve/public/index/getStrategy', function (error, response, body) {
                 var bodyobj = JSON.parse(body)
                 $("#hour").val(bodyobj.hour)
@@ -97,14 +119,14 @@ $(function () {
         rule1.minute = $("#minute").val();
         rule1.second = $("#fromsecond").val();
         schedule.scheduleJob(rule1, () => {
-            robot.moveMouse(670*ratio, 327*ratio);
+            robot.moveMouse(x2, y2);
             robot.mouseClick();
             robot.typeString($("#addmoney").val());
-            robot.moveMouse(794*ratio, 323*ratio);
+            robot.moveMouse(x3, y3);
             robot.mouseClick();
-            robot.moveMouse(785*ratio, 433*ratio);
+            robot.moveMouse(x4, y4);
             robot.mouseClick();
-            robot.moveMouseSmooth(718*ratio, 435*ratio);
+            robot.moveMouse(x5, y5);
             robot.mouseClick();
         });
         var rule2 = new schedule.RecurrenceRule();
@@ -112,16 +134,16 @@ $(function () {
         rule2.minute = $("#minute").val();
         rule2.second = $("#tosecond").val();
         schedule.scheduleJob(rule2, () => {
-            robot.moveMouse(540*ratio, 510*ratio);
+            robot.moveMouse(x6, y6);
             robot.mouseClick();
         });
 
-        $("#startmsg").html("于"+new Date().toLocaleTimeString()+"策略设置成功！");
+        $("#startmsg").html("于" + new Date().toLocaleTimeString() + "策略设置成功！");
     });
 });
 
-// setInterval(function () {
-//     var mouse = robot.getMousePos();
-//     console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
-// }, 1000);
+setInterval(function () {
+    var mouse = robot.getMousePos();
+    console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
+}, 1000);
 
