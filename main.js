@@ -31,7 +31,7 @@ function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1200,
-    height: 727,
+    height: 770,
     x: 0,
     y: 0,
     movable: false,
@@ -62,13 +62,13 @@ function createWindow() {
 
   let view = new BrowserView({
     webPreferences: {
-      // nodeIntegration: false,
-      // webSecurity: false,
+      nodeIntegration: false,
+      webSecurity: false,
       plugins: true
     }
   })
   mainWindow.setBrowserView(view)
-  view.setBounds({ x: 0, y: 0, width: 900, height: 727 })
+  view.setBounds({ x: 0, y: 0, width: 900, height: 770 })
   var onlineUrl
   request.get('http://autohupai.top/hupai-serve/public/index/getUrl', function (error, response, body) {
     var bodyobj = JSON.parse(body)
