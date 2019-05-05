@@ -54,7 +54,7 @@ function createWindow() {
   mainWindow.loadFile('index.html')
 
   // let scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
-  console.log(scaleFactor)
+  // console.log(scaleFactor)
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
   // Emitted when the window is closed.

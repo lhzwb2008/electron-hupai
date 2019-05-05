@@ -3,20 +3,21 @@ const schedule = require('node-schedule');
 const request = require('request')
 const electron = require('electron')
 var scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
+console.log(scaleFactor)
 switch (process.platform) {
     case 'win32':
-        var x1 = 772
-        var y1 = 553
-        var x2 = 670
-        var y2 = 327
-        var x3 = 794
-        var y3 = 323
-        var x4 = 785
-        var y4 = 433
-        var x5 = 718
-        var y5 = 435
-        var x6 = 540
-        var y6 = 510
+        var x1 = 1500*scaleFactor/2
+        var y1 = 1052*scaleFactor/2
+        var x2 = 1338*scaleFactor/2
+        var y2 = 606*scaleFactor/2
+        var x3 = 1594*scaleFactor/2
+        var y3 = 600*scaleFactor/2
+        var x4 = 1348*scaleFactor/2
+        var y4 = 812*scaleFactor/2
+        var x5 = 1606*scaleFactor/2
+        var y5 = 814*scaleFactor/2
+        var x6 = 1448*scaleFactor/2
+        var y6 = 828*scaleFactor/2
         break
     case 'darwin':
         var x1 = 772
@@ -145,8 +146,8 @@ $(function () {
     });
 });
 
-setInterval(function () {
-    var mouse = robot.getMousePos();
-    console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
-}, 1000);
+// setInterval(function () {
+//     var mouse = robot.getMousePos();
+//     console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
+// }, 1000);
 
