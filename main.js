@@ -31,7 +31,7 @@ function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1200,
-    height: 770,
+    height: 727,
     x: 0,
     y: 0,
     movable: false,
@@ -40,6 +40,7 @@ function createWindow() {
     minimizable: false,
     alwaysOnTop:true,
     fullscreenable: false,
+    // closable:false,
     webPreferences: {
       plugins: true,
       webSecurity: false
@@ -48,6 +49,8 @@ function createWindow() {
   // and load the index.html of the app.
   // console.log(mainWindow.getPosition());
   // and load the index.html of the app.
+  
+  // mainWindow.setMenu(null)
   mainWindow.loadFile('index.html')
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -68,7 +71,7 @@ function createWindow() {
     }
   })
   mainWindow.setBrowserView(view)
-  view.setBounds({ x: 0, y: 0, width: 900, height: 770 })
+  view.setBounds({ x: 0, y: 0, width: 900, height: 727 })
   var onlineUrl
   request.get('http://autohupai.top/hupai-serve/public/index/getUrl', function (error, response, body) {
     var bodyobj = JSON.parse(body)

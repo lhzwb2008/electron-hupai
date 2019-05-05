@@ -118,7 +118,7 @@ $(function () {
 
         $("#startmsg").html("于"+new Date().toLocaleTimeString()+"策略设置成功！");
     });
-});a
+});
 
 // setInterval(function () {
 //     var mouse = robot.getMousePos();
