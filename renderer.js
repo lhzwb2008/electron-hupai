@@ -112,12 +112,13 @@ $(function () {
         rule2.minute = $("#minute").val();
         rule2.second = $("#tosecond").val();
         schedule.scheduleJob(rule2, () => {
-            robot.moveMouse(540, 510);
+            robot.moveMouse(540*ratio, 510*ratio);
             robot.mouseClick();
         });
-        alert('策略设置成功！请准备输入验证码，输入后无需点击确认！');
+
+        $("#startmsg").html("于"+new Date().toLocaleTimeString()+"策略设置成功！");
     });
-});
+});a
 
 // setInterval(function () {
 //     var mouse = robot.getMousePos();
