@@ -50,6 +50,7 @@ function createWindow() {
   // and load the index.html of the app.
   // console.log(mainWindow.getPosition());
   // and load the index.html of the app.
+  mainWindow.setMenu(null)
   mainWindow.loadFile('index.html')
 
   let scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
