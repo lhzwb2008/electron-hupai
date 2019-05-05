@@ -3,23 +3,27 @@ const { app, BrowserWindow, BrowserView } = require('electron')
 const path = require('path')
 const request = require('request')
 
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 let pluginName
+let flashVersion
 switch (process.platform) {
   case 'win32':
     pluginName = 'pepflashplayer.dll'
+    flashVersion = '32.0.0.171'
     break
   case 'darwin':
     pluginName = 'PepperFlashPlayer.plugin'
+    flashVersion = '32.0.0.156'
     break
   case 'linux':
     pluginName = 'libpepflashplayer.so'
     break
 }
 app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
-app.commandLine.appendSwitch('ppapi-flash-version', '32.0.0.156')
+app.commandLine.appendSwitch('ppapi-flash-version', flashVersion)
 
 
 function createWindow() {
@@ -30,11 +34,11 @@ function createWindow() {
     height: 727,
     x: 0,
     y: 0,
-    // movable: false,
-    // resizable: false,
-    // maximizable: false,
-    // alwaysOnTop:true,
-    // fullscreenable: false,
+    movable: false,
+    resizable: false,
+    maximizable: false,
+    alwaysOnTop:true,
+    fullscreenable: false,
     webPreferences: {
       plugins: true,
       webSecurity: false
@@ -45,7 +49,7 @@ function createWindow() {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
@@ -54,10 +58,11 @@ function createWindow() {
     mainWindow = null
   })
 
+
   let view = new BrowserView({
     webPreferences: {
-      nodeIntegration: false,
-      webSecurity: false,
+      // nodeIntegration: false,
+      // webSecurity: false,
       plugins: true
     }
   })
@@ -76,11 +81,7 @@ function createWindow() {
       view.webContents.loadURL(onlineUrl, { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
     }
   })
-
-
-
-
-}
+} 
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

@@ -1,25 +1,33 @@
 const robot = require("robotjs");
 const schedule = require('node-schedule');
 const request = require('request')
+switch (process.platform) {
+    case 'win32':
+    var ratio=2
+    break
+    case 'darwin':
+    var ratio=1
+    break
+}
 
 //弹窗
 setTimeout(function () {
-    robot.moveMouse(772, 553);
+    robot.moveMouse(772*ratio, 553*ratio);
     robot.mouseClick();
 }, 2000);
 setTimeout(function () {
-    robot.moveMouse(772, 555);
+    robot.moveMouse(772*ratio, 553*ratio);
     robot.mouseClick();
 }, 2100);
 
-// //输入账号
-// setTimeout(function () {
-//     robot.moveMouse(595, 270);
-//     robot.mouseClick();
-//     robot.typeStringDelayed('55170561');
-//     robot.keyTap('tab');
-//     robot.typeStringDelayed('2036');
-// }, 2500);
+//输入账号
+setTimeout(function () {
+    robot.moveMouse(595*ratio, 270*ratio);
+    robot.mouseClick();
+    robot.typeStringDelayed('55170561');
+    robot.keyTap('tab');
+    robot.typeStringDelayed('2036');
+}, 2500);
 
 
 $(function () {
@@ -89,14 +97,14 @@ $(function () {
         rule1.minute = $("#minute").val();
         rule1.second = $("#fromsecond").val();
         schedule.scheduleJob(rule1, () => {
-            robot.moveMouse(670, 327);
+            robot.moveMouse(670*ratio, 327*ratio);
             robot.mouseClick();
             robot.typeString($("#addmoney").val());
-            robot.moveMouse(794, 323);
+            robot.moveMouse(794*ratio, 323*ratio);
             robot.mouseClick();
-            robot.moveMouse(785, 433);
+            robot.moveMouse(785*ratio, 433*ratio);
             robot.mouseClick();
-            robot.moveMouseSmooth(718, 435);
+            robot.moveMouseSmooth(718*ratio, 435*ratio);
             robot.mouseClick();
         });
         var rule2 = new schedule.RecurrenceRule();
@@ -107,7 +115,7 @@ $(function () {
             robot.moveMouse(540, 510);
             robot.mouseClick();
         });
-        alert('策略设置成功！请准备输入验证码，输入后无需点击确认！');
+        alert('策略设置成功！请准备输入验证码，输入后无需点击确认！');
     });
 });
 
