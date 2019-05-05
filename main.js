@@ -1,5 +1,6 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, BrowserView } = require('electron')
+const electron = require('electron')
+const { app, BrowserWindow, BrowserView } = electron
 const path = require('path')
 const request = require('request')
 
@@ -50,6 +51,9 @@ function createWindow() {
   // console.log(mainWindow.getPosition());
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
+
+  let scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
+  console.log(scaleFactor)
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
   // Emitted when the window is closed.

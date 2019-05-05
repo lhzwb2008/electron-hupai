@@ -32,6 +32,8 @@ switch (process.platform) {
         break
 }
 
+console.log(robot.getScreenSize().width)
+
 //弹窗
 setTimeout(function () {
     robot.moveMouse(x1, y1);
