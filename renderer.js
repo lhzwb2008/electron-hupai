@@ -1,6 +1,8 @@
 const robot = require("robotjs");
 const schedule = require('node-schedule');
 const request = require('request')
+const electron = require('electron')
+var scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
 switch (process.platform) {
     case 'win32':
         var x1 = 772
@@ -32,7 +34,6 @@ switch (process.platform) {
         break
 }
 
-console.log(robot.getScreenSize().width)
 
 //弹窗
 setTimeout(function () {
