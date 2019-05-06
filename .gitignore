@@ -1,6 +1,5 @@
 .DS_Store
 node_modules
-out
-dist
 HupaiHelper-darwin-x64
 HupaiHelper-win32-x64
+*.zip
