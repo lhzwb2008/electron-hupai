@@ -3,7 +3,6 @@ const schedule = require('node-schedule');
 const request = require('request')
 const electron = require('electron')
 var scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
-console.log(scaleFactor)
 switch (process.platform) {
     case 'win32':
         var x1 = 1500*scaleFactor/2
@@ -40,11 +39,11 @@ switch (process.platform) {
 setTimeout(function () {
     robot.moveMouse(x1, y1);
     robot.mouseClick();
-}, 2000);
+}, 3000);
 setTimeout(function () {
     robot.moveMouse(x1, y1);
     robot.mouseClick();
-}, 2100);
+}, 3100);
 
 //输入账号
 // setTimeout(function () {
@@ -146,8 +145,8 @@ $(function () {
     });
 });
 
-setInterval(function () {
-    var mouse = robot.getMousePos();
-    console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
-}, 1000);
+// setInterval(function () {
+//     var mouse = robot.getMousePos();
+//     console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
+// }, 1000);
 
