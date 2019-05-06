@@ -41,10 +41,10 @@ function createWindow() {
     minimizable: false,
     alwaysOnTop:true,
     fullscreenable: false,
-    // closable:false,
     webPreferences: {
       plugins: true,
-      webSecurity: false
+      webSecurity: false,
+      nodeIntegration: true
     }
   })
   // and load the index.html of the app.

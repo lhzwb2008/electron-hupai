@@ -35,16 +35,16 @@ function createWindow() {
     height: 727,
     x: 0,
     y: 0,
-    // movable: false,
+    movable: false,
     resizable: false,
     maximizable: false,
     minimizable: false,
     alwaysOnTop:true,
     fullscreenable: false,
-    // closable:false,
     webPreferences: {
       plugins: true,
-      webSecurity: false
+      webSecurity: false,
+      nodeIntegration: true
     }
   })
   // and load the index.html of the app.
@@ -56,7 +56,7 @@ function createWindow() {
   // let scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
   // console.log(scaleFactor)
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
