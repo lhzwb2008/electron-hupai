@@ -1,1 +1,116 @@
-const electron=require('electron');const {app,BrowserWindow,BrowserView}=electron;const path=require('path');const request=require('request');let mainWindow;let pluginName;let flashVersion;switch(process['platform']){case'win32':pluginName='pepflashplayer\x2edll';flashVersion='32\x2e0\x2e0\x2e171';break;case'darwin':pluginName='PepperFlashPlayer\x2eplugin';flashVersion='32\x2e0\x2e0\x2e156';break;case'linux':pluginName='libpepflashplayer\x2eso';break;}app['commandLine']['appendSwitch']('ppapi\x2dflash\x2dpath',path['join'](__dirname,pluginName));app['commandLine']['appendSwitch']('ppapi\x2dflash\x2dversion',flashVersion);function createWindow(){mainWindow=new BrowserWindow({'\x77\x69\x64\x74\x68':0x4b0,'\x68\x65\x69\x67\x68\x74':0x2d7,'\x78':0x0,'\x79':0x0,'\x6d\x6f\x76\x61\x62\x6c\x65':![],'\x72\x65\x73\x69\x7a\x61\x62\x6c\x65':![],'\x6d\x61\x78\x69\x6d\x69\x7a\x61\x62\x6c\x65':![],'\x6d\x69\x6e\x69\x6d\x69\x7a\x61\x62\x6c\x65':![],'\x61\x6c\x77\x61\x79\x73\x4f\x6e\x54\x6f\x70':!![],'\x66\x75\x6c\x6c\x73\x63\x72\x65\x65\x6e\x61\x62\x6c\x65':![],'\x77\x65\x62\x50\x72\x65\x66\x65\x72\x65\x6e\x63\x65\x73':{'\x70\x6c\x75\x67\x69\x6e\x73':!![],'\x77\x65\x62\x53\x65\x63\x75\x72\x69\x74\x79':![]}});mainWindow['setMenu'](null);mainWindow['loadFile']('index\x2ehtml');mainWindow['on']('closed',function(){mainWindow=null;});let _0x643091=new BrowserView({'\x77\x65\x62\x50\x72\x65\x66\x65\x72\x65\x6e\x63\x65\x73':{'\x6e\x6f\x64\x65\x49\x6e\x74\x65\x67\x72\x61\x74\x69\x6f\x6e':![],'\x77\x65\x62\x53\x65\x63\x75\x72\x69\x74\x79':![],'\x70\x6c\x75\x67\x69\x6e\x73':!![]}});mainWindow['setBrowserView'](_0x643091);_0x643091['setBounds']({'\x78':0x0,'\x79':0x0,'\x77\x69\x64\x74\x68':0x384,'\x68\x65\x69\x67\x68\x74':0x2d7});var _0x190f84;request['get']('http\x3a\x2f\x2fautohupai\x2etop\x2fhupai\x2dserve\x2fpublic\x2findex\x2fgetUrl',function(_0x2fa01d,_0x17255c,_0x3a4443){var _0x836094=JSON['parse'](_0x3a4443);_0x190f84=_0x836094['url'];});request['get'](_0x190f84,{'\x74\x69\x6d\x65\x6f\x75\x74':0x1f4},function(_0x1704bb){if(_0x1704bb){_0x643091['webContents']['loadURL']('http\x3a\x2f\x2ftest\x2ealltobid\x2ecom\x2fmoni\x2fgerenlogin\x2ehtml',{'\x75\x73\x65\x72\x41\x67\x65\x6e\x74':'Mozilla\x2f5\x2e0\x20\x28Macintosh\x3b\x20Intel\x20Mac\x20OS\x20X\x2010\x5f14\x29\x20AppleWebKit\x2f605\x2e1\x2e15\x20\x28KHTML\x2c\x20like\x20Gecko\x29\x20Version\x2f12\x2e0\x20Safari\x2f605\x2e1\x2e15'});}else{_0x643091['webContents']['loadURL'](_0x190f84,{'\x75\x73\x65\x72\x41\x67\x65\x6e\x74':'Mozilla\x2f5\x2e0\x20\x28Macintosh\x3b\x20Intel\x20Mac\x20OS\x20X\x2010\x5f14\x29\x20AppleWebKit\x2f605\x2e1\x2e15\x20\x28KHTML\x2c\x20like\x20Gecko\x29\x20Version\x2f12\x2e0\x20Safari\x2f605\x2e1\x2e15'});}});}app['on']('ready',createWindow);app['on']('window\x2dall\x2dclosed',function(){var _0x54b418={'\x56\x66\x6a':function _0x30dbe2(_0x2c1814,_0xf179f4){return _0x2c1814!==_0xf179f4;}};if(_0x54b418['Vfj'](process['platform'],'darwin')){app['quit']();}});app['on']('activate',function(){var _0x237967={'\x57\x66\x76':function _0x51c3ab(_0x3684b7,_0x2362da){return _0x3684b7===_0x2362da;},'\x68\x74\x6f':function _0x2d4498(_0x568c3f){return _0x568c3f();}};if(_0x237967['Wfv'](mainWindow,null)){_0x237967['hto'](createWindow);}});
+// Modules to control application life and create native browser window
+const electron = require('electron')
+const { app, BrowserWindow, BrowserView } = electron
+const path = require('path')
+const request = require('request')
+
+
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
+let mainWindow
+let pluginName
+let flashVersion
+switch (process.platform) {
+  case 'win32':
+    pluginName = 'pepflashplayer.dll'
+    flashVersion = '32.0.0.171'
+    break
+  case 'darwin':
+    pluginName = 'PepperFlashPlayer.plugin'
+    flashVersion = '32.0.0.156'
+    break
+  case 'linux':
+    pluginName = 'libpepflashplayer.so'
+    break
+}
+app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
+app.commandLine.appendSwitch('ppapi-flash-version', flashVersion)
+
+
+function createWindow() {
+
+  // Create the browser window.
+  mainWindow = new BrowserWindow({
+    width: 1200,
+    height: 727,
+    x: 0,
+    y: 0,
+    // movable: false,
+    resizable: false,
+    maximizable: false,
+    minimizable: false,
+    alwaysOnTop:true,
+    fullscreenable: false,
+    // closable:false,
+    webPreferences: {
+      plugins: true,
+      webSecurity: false
+    }
+  })
+  // and load the index.html of the app.
+  // console.log(mainWindow.getPosition());
+  // and load the index.html of the app.
+  mainWindow.setMenu(null)
+  mainWindow.loadFile('index.html')
+
+  // let scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
+  // console.log(scaleFactor)
+  // Open the DevTools.
+  mainWindow.webContents.openDevTools()
+  // Emitted when the window is closed.
+  mainWindow.on('closed', function () {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null
+  })
+
+
+  let view = new BrowserView({
+    webPreferences: {
+      nodeIntegration: false,
+      webSecurity: false,
+      plugins: true
+    }
+  })
+  mainWindow.setBrowserView(view)
+  view.setBounds({ x: 0, y: 0, width: 900, height: 727 })
+  var onlineUrl
+  request.get('http://autohupai.top/hupai-serve/public/index/getUrl', function (error, response, body) {
+    var bodyobj = JSON.parse(body)
+    onlineUrl = bodyobj.url
+  })
+  request.get(onlineUrl, { timeout: 500 }, function (error) {
+    if (error) {
+      view.webContents.loadURL('http://test.alltobid.com/moni/gerenlogin.html', { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
+
+    } else {
+      view.webContents.loadURL(onlineUrl, { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
+    }
+  })
+} 
+
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
+app.on('ready', createWindow)
+
+// Quit when all windows are closed.
+app.on('window-all-closed', function () {
+  // On OS X it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', function () {
+  // On OS X it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (mainWindow === null) {
+    createWindow()
+  }
+})
+
+// In this file you can include the rest of your app's specific main process
+// code. You can also put them in separate files and require them here.
