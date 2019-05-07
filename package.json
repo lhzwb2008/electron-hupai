@@ -36,12 +36,18 @@
         },
         "win": {
             "target": [
-                "nsis"
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64",
+                        "ia32"
+                    ]
+                }
             ]
         },
-        "nsis":{
-            "oneClick":false,
-            "createStartMenuShortcut":false
+        "nsis": {
+            "oneClick": false,
+            "createStartMenuShortcut": false
         }
     }
 }
