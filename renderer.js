@@ -39,16 +39,15 @@ switch (process.platform) {
 setTimeout(function () {
     robot.moveMouse(x1, y1);
     robot.mouseClick();
-}, 3000);
+}, 2000);
 setTimeout(function () {
     robot.moveMouse(x1, y1);
     robot.mouseClick();
-}, 3100);
+}, 2100);
 
-//输入账号
 // setTimeout(function () {
-//     robot.moveMouse(595*ratio, 270*ratio);
-//     robot.mouseClick();
+//     robot.moveMouse(595, 270);
+//     robot.mouseClick();  
 //     robot.typeStringDelayed('55170561');
 //     robot.keyTap('tab');
 //     robot.typeStringDelayed('2036');

@@ -12,15 +12,15 @@ let pluginName
 let flashVersion
 switch (process.platform) {
   case 'win32':
-    pluginName = 'pepflashplayer.dll'
+    pluginName = 'flash/PepperFlashPlayer.dll'
     flashVersion = '32.0.0.171'
     break
   case 'darwin':
-    pluginName = 'PepperFlashPlayer.plugin'
+    pluginName = 'flash/PepperFlashPlayer.plugin'
     flashVersion = '32.0.0.156'
     break
   case 'linux':
-    pluginName = 'libpepflashplayer.so'
+    pluginName = 'flash/libpepflashplayer.so'
     break
 }
 app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
@@ -35,7 +35,7 @@ function createWindow() {
     height: 727,
     x: 0,
     y: 0,
-    movable: false,
+    // movable: false,
     resizable: false,
     maximizable: false,
     minimizable: false,
@@ -56,7 +56,7 @@ function createWindow() {
   // let scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
   // console.log(scaleFactor)
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
