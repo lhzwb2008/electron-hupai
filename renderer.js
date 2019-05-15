@@ -21,16 +21,16 @@ switch (process.platform) {
     case 'darwin':
         var x1 = 772
         var y1 = 553
-        var x2 = 670
-        var y2 = 327
-        var x3 = 785
-        var y3 = 433
-        var x4 = 718
-        var y4 = 435
-        var x5 = 540
-        var y5 = 510
-        var x6 = 540
-        var y6 = 510
+        var x2 = 678
+        var y2 = 324
+        var x3 = 795
+        var y3 = 320
+        var x4 = 795
+        var y4 = 431
+        var x5 = 733
+        var y5 = 428
+        var x6 = 550
+        var y6 = 512
         break
 }
 
@@ -144,8 +144,8 @@ $(function () {
     });
 });
 
-// setInterval(function () {
-//     var mouse = robot.getMousePos();
-//     console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
-// }, 1000);
+setInterval(function () {
+    var mouse = robot.getMousePos();
+    console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
+}, 1000);
 
