@@ -43,7 +43,7 @@ function createWindow() {
     resizable: false,
     maximizable: false,
     minimizable: false,
-    alwaysOnTop:true,
+    // alwaysOnTop:true,
     fullscreenable: false,
     webPreferences: {
       plugins: true,
