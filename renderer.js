@@ -1,1 +1,200 @@
-const robot=require('robotjs');const schedule=require('node\x2dschedule');const request=require('request');const electron=require('electron');var scaleFactor=electron['screen']['getPrimaryDisplay']()['scaleFactor'];switch(process['platform']){case'win32':var x1=0x5dc*scaleFactor/0x2;var y1=0x41c*scaleFactor/0x2;var x2=0x53a*scaleFactor/0x2;var y2=0x25e*scaleFactor/0x2;var x3=0x63a*scaleFactor/0x2;var y3=0x258*scaleFactor/0x2;var x4=0x544*scaleFactor/0x2;var y4=0x32c*scaleFactor/0x2;var x5=0x646*scaleFactor/0x2;var y5=0x32e*scaleFactor/0x2;var x6=0x440*scaleFactor/0x2;var y6=0x3d0*scaleFactor/0x2;break;case'darwin':var x1=0x304;var y1=0x229;var x2=0x2a6;var y2=0x144;var x3=0x31b;var y3=0x140;var x4=0x31b;var y4=0x1af;var x5=0x2dd;var y5=0x1ac;var x6=0x226;var y6=0x200;break;}setTimeout(function(){robot['moveMouse'](x1,y1);robot['mouseClick']();},0x7d0);setTimeout(function(){robot['moveMouse'](x1,y1);robot['mouseClick']();},0x834);$(function(){var _0x26f107={'\x72\x6b\x48':function _0x4591b2(_0x3b5673,_0x186e1d){return _0x3b5673(_0x186e1d);},'\x50\x78\x43':function _0x4756f4(_0x3cdcfd,_0x4793fe){return _0x3cdcfd==_0x4793fe;},'\x4b\x54\x50':function _0x4689c8(_0xc1023c,_0xdf2685){return _0xc1023c(_0xdf2685);},'\x47\x74\x54':function _0x2ae0ae(_0x263036,_0x1e7210){return _0x263036==_0x1e7210;},'\x4f\x4d\x75':function _0x58b119(_0x39b93a,_0x4ae266){return _0x39b93a==_0x4ae266;},'\x74\x4b\x71':function _0x581f77(_0x2d5b6a,_0x409edb){return _0x2d5b6a(_0x409edb);},'\x67\x4c\x61':function _0x49a7ea(_0x46d268,_0x4485ee){return _0x46d268(_0x4485ee);},'\x4b\x4a\x50':function _0x76dd37(_0x37615d,_0x400b0f){return _0x37615d(_0x400b0f);},'\x63\x54\x41':function _0x296af2(_0x9a0b4d,_0x338be2){return _0x9a0b4d(_0x338be2);},'\x6c\x6c\x69':function _0x251a60(_0x30509d,_0x37bc9a,_0x19a918){return _0x30509d(_0x37bc9a,_0x19a918);}};var _0x53dbf8='2\x7c4\x7c1\x7c5\x7c0\x7c3'['split']('\x7c'),_0x8d4a92=0x0;while(!![]){switch(_0x53dbf8[_0x8d4a92++]){case'0':_0x26f107['rkH']($,'\x23strategy')['change'](function(){if(_0x5d76ee['UbA'](_0x5d76ee['CeX']($,'\x23strategy')['val'](),0x2)){var _0x18ff48='4\x7c3\x7c1\x7c0\x7c2'['split']('\x7c'),_0x315d4c=0x0;while(!![]){switch(_0x18ff48[_0x315d4c++]){case'0':_0x5d76ee['Lyh']($,'\x23tosecond')['removeAttr']('readonly');continue;case'1':_0x5d76ee['idx']($,'\x23fromsecond')['removeAttr']('readonly');continue;case'2':_0x5d76ee['Kom']($,'\x23addmoney')['removeAttr']('readonly');continue;case'3':_0x5d76ee['Kom']($,'\x23minute')['removeAttr']('readonly');continue;case'4':_0x5d76ee['Oac']($,'\x23hour')['removeAttr']('readonly');continue;}break;}}else if(_0x5d76ee['dZo'](_0x5d76ee['bHo']($,'\x23strategy')['val'](),0x1)){request['get']('http\x3a\x2f\x2fautohupai\x2etop\x2fhupai\x2dserve\x2fpublic\x2findex\x2fgetStrategy',function(_0x2f4567,_0x267e12,_0x2765e9){var _0x49d6fb={'\x4c\x55\x6d':function _0x49a49a(_0x3d5d08,_0x2bb6f4){return _0x3d5d08(_0x2bb6f4);},'\x47\x6a\x6d':function _0x84857f(_0x46fcd8,_0x3db62c){return _0x46fcd8(_0x3db62c);},'\x53\x77\x56':function _0x3455d7(_0x2d1760,_0x5c34de){return _0x2d1760(_0x5c34de);},'\x4a\x41\x66':function _0x42f603(_0x1d9f3c,_0x1fddbb){return _0x1d9f3c(_0x1fddbb);},'\x46\x61\x51':function _0x3f81db(_0x142cd2,_0x3b5afa){return _0x142cd2(_0x3b5afa);}};var _0x3a2bc1='3\x7c9\x7c0\x7c1\x7c5\x7c4\x7c2\x7c7\x7c6\x7c8\x7c10'['split']('\x7c'),_0x5aa4b9=0x0;while(!![]){switch(_0x3a2bc1[_0x5aa4b9++]){case'0':_0x49d6fb['LUm']($,'\x23hour')['attr']('readonly','readonly');continue;case'1':_0x49d6fb['LUm']($,'\x23minute')['val'](_0x4c642a['minute']);continue;case'2':_0x49d6fb['LUm']($,'\x23fromsecond')['attr']('readonly','readonly');continue;case'3':var _0x4c642a=JSON['parse'](_0x2765e9);continue;case'4':_0x49d6fb['Gjm']($,'\x23fromsecond')['val'](_0x4c642a['fromsecond']);continue;case'5':_0x49d6fb['Gjm']($,'\x23minute')['attr']('readonly','readonly');continue;case'6':_0x49d6fb['Gjm']($,'\x23addmoney')['attr']('readonly','readonly');continue;case'7':_0x49d6fb['SwV']($,'\x23addmoney')['val'](_0x4c642a['addmoney']);continue;case'8':_0x49d6fb['JAf']($,'\x23tosecond')['val'](_0x4c642a['tosecond']);continue;case'9':_0x49d6fb['JAf']($,'\x23hour')['val'](_0x4c642a['hour']);continue;case'10':_0x49d6fb['FaQ']($,'\x23tosecond')['attr']('readonly','readonly');continue;}break;}});}});continue;case'1':if(_0x26f107['PxC'](_0x26f107['KTP']($,'\x23strategy')['val'](),0x1)){request['get']('http\x3a\x2f\x2fautohupai\x2etop\x2fhupai\x2dserve\x2fpublic\x2findex\x2fgetStrategy',function(_0x3511c5,_0x46ac7f,_0x26dcbf){var _0x51754a={'\x77\x73\x57':function _0x269ccf(_0x19c4d5,_0x2ef11d){return _0x19c4d5(_0x2ef11d);},'\x46\x71\x51':function _0xa9059e(_0x461524,_0x4c863d){return _0x461524(_0x4c863d);},'\x4f\x62\x64':function _0x1539e5(_0x3f4698,_0x9d273f){return _0x3f4698(_0x9d273f);}};var _0x8cbcc='6\x7c9\x7c7\x7c8\x7c0\x7c1\x7c10\x7c5\x7c4\x7c2\x7c3'['split']('\x7c'),_0x6efd24=0x0;while(!![]){switch(_0x8cbcc[_0x6efd24++]){case'0':_0x51754a['wsW']($,'\x23minute')['attr']('readonly','readonly');continue;case'1':_0x51754a['wsW']($,'\x23fromsecond')['val'](_0x5b21e4['fromsecond']);continue;case'2':_0x51754a['wsW']($,'\x23tosecond')['val'](_0x5b21e4['tosecond']);continue;case'3':_0x51754a['FqQ']($,'\x23tosecond')['attr']('readonly','readonly');continue;case'4':_0x51754a['FqQ']($,'\x23addmoney')['attr']('readonly','readonly');continue;case'5':_0x51754a['FqQ']($,'\x23addmoney')['val'](_0x5b21e4['addmoney']);continue;case'6':var _0x5b21e4=JSON['parse'](_0x26dcbf);continue;case'7':_0x51754a['FqQ']($,'\x23hour')['attr']('readonly','readonly');continue;case'8':_0x51754a['Obd']($,'\x23minute')['val'](_0x5b21e4['minute']);continue;case'9':_0x51754a['Obd']($,'\x23hour')['val'](_0x5b21e4['hour']);continue;case'10':_0x51754a['Obd']($,'\x23fromsecond')['attr']('readonly','readonly');continue;}break;}});}continue;case'2':var _0x5d76ee={'\x6c\x56\x42':function _0x369d87(_0x2728e,_0x5ef71b){return _0x26f107['KTP'](_0x2728e,_0x5ef71b);},'\x70\x68\x77':function _0x5a0144(_0x404a5d,_0x5c362a){return _0x26f107['GtT'](_0x404a5d,_0x5c362a);},'\x55\x62\x41':function _0x5c71d9(_0x258ee2,_0x332f34){return _0x26f107['OMu'](_0x258ee2,_0x332f34);},'\x43\x65\x58':function _0x1df02f(_0x2b4152,_0x1e160a){return _0x26f107['tKq'](_0x2b4152,_0x1e160a);},'\x4c\x79\x68':function _0x228463(_0x2f4f5f,_0x5e92e4){return _0x26f107['tKq'](_0x2f4f5f,_0x5e92e4);},'\x69\x64\x78':function _0x97b3db(_0x3adc6c,_0x17524f){return _0x26f107['gLa'](_0x3adc6c,_0x17524f);},'\x4b\x6f\x6d':function _0xde6e72(_0x285b2b,_0x26952c){return _0x26f107['gLa'](_0x285b2b,_0x26952c);},'\x4f\x61\x63':function _0x48e69f(_0x250012,_0x1ffeaf){return _0x26f107['KJP'](_0x250012,_0x1ffeaf);},'\x64\x5a\x6f':function _0xb07c07(_0x1c35ca,_0x58172d){return _0x26f107['OMu'](_0x1c35ca,_0x58172d);},'\x62\x48\x6f':function _0xa95b07(_0x8147cd,_0x380dff){return _0x26f107['KJP'](_0x8147cd,_0x380dff);}};continue;case'3':_0x26f107['cTA']($,'\x23start')['click'](function(){var _0x30f139={'\x67\x68\x4f':function _0x1e41e9(_0x42521b,_0x52ca35){return _0x42521b(_0x52ca35);},'\x46\x4f\x65':function _0x51467d(_0x440211,_0x591881){return _0x440211(_0x591881);},'\x51\x6f\x69':function _0xeac57f(_0x258aec,_0x37438e){return _0x258aec(_0x37438e);},'\x72\x48\x44':function _0x3e169b(_0x93488d,_0x44f5dd){return _0x93488d+_0x44f5dd;},'\x52\x41\x58':function _0xe8b313(_0x35d050,_0x2c4760){return _0x35d050(_0x2c4760);}};var _0x3dedbd='10\x7c4\x7c9\x7c2\x7c8\x7c5\x7c1\x7c0\x7c7\x7c6\x7c3'['split']('\x7c'),_0xc83128=0x0;while(!![]){switch(_0x3dedbd[_0xc83128++]){case'0':_0x4d5520['minute']=_0x30f139['ghO']($,'\x23minute')['val']();continue;case'1':_0x4d5520['hour']=_0x30f139['FOe']($,'\x23hour')['val']();continue;case'2':_0x27ddf2['second']=_0x30f139['FOe']($,'\x23fromsecond')['val']();continue;case'3':_0x30f139['Qoi']($,'\x23startmsg')['html'](_0x30f139['rHD'](_0x30f139['rHD']('\u4e8e',new Date()['toLocaleTimeString']()),'\u7b56\u7565\u8bbe\u7f6e\u6210\u529f\uff01'));continue;case'4':_0x27ddf2['hour']=_0x30f139['RAX']($,'\x23hour')['val']();continue;case'5':var _0x4d5520=new schedule['RecurrenceRule']();continue;case'6':schedule['scheduleJob'](_0x4d5520,()=>{robot['moveMouse'](x6,y6);robot['mouseClick']();});continue;case'7':_0x4d5520['second']=_0x30f139['RAX']($,'\x23tosecond')['val']();continue;case'8':schedule['scheduleJob'](_0x27ddf2,()=>{var _0x5887fc={'\x66\x72\x64':function _0x4910d4(_0x3784ad,_0x5139e1){return _0x3784ad(_0x5139e1);}};var _0x42baea='3\x7c5\x7c6\x7c8\x7c4\x7c1\x7c7\x7c0\x7c2'['split']('\x7c'),_0x2612d0=0x0;while(!![]){switch(_0x42baea[_0x2612d0++]){case'0':robot['moveMouse'](x5,y5);continue;case'1':robot['moveMouse'](x4,y4);continue;case'2':robot['mouseClick']();continue;case'3':robot['moveMouse'](x2,y2);continue;case'4':robot['mouseClick']();continue;case'5':robot['mouseClick']();continue;case'6':robot['typeString'](_0x5887fc['frd']($,'\x23addmoney')['val']());continue;case'7':robot['mouseClick']();continue;case'8':robot['moveMouse'](x3,y3);continue;}break;}});continue;case'9':_0x27ddf2['minute']=_0x30f139['RAX']($,'\x23minute')['val']();continue;case'10':var _0x27ddf2=new schedule['RecurrenceRule']();continue;}break;}});continue;case'4':request['get']('http\x3a\x2f\x2fautohupai\x2etop\x2fhupai\x2dserve\x2fpublic\x2findex\x2fgetMessage',function(_0x35119f,_0x1402de,_0x14b2b3){var _0x3a5aee=JSON['parse'](_0x14b2b3);_0x5d76ee['lVB']($,'\x23message')['html'](_0x3a5aee['message']);});continue;case'5':_0x26f107['lli'](setInterval,function(){if(_0x5d76ee['phw'](_0x5d76ee['lVB']($,'\x23strategy')['val'](),0x1)){request['get']('http\x3a\x2f\x2fautohupai\x2etop\x2fhupai\x2dserve\x2fpublic\x2findex\x2fgetStrategy',function(_0x33cc1a,_0x56da58,_0x37808e){var _0x252b87={'\x46\x7a\x4b':function _0x98e09(_0x408a06,_0x4ebf46){return _0x408a06(_0x4ebf46);},'\x4f\x48\x62':function _0x30bae8(_0x5dab22,_0x52125b){return _0x5dab22(_0x52125b);},'\x71\x52\x6b':function _0x4459d8(_0x398491,_0x3e9a28){return _0x398491(_0x3e9a28);},'\x6d\x4d\x43':function _0x60811b(_0x8ab8b3,_0x2e75f2){return _0x8ab8b3(_0x2e75f2);},'\x43\x43\x73':function _0x13e386(_0x1a1736,_0x1fc5a5){return _0x1a1736(_0x1fc5a5);},'\x71\x70\x75':function _0x383b87(_0x12c8ce,_0x33b895){return _0x12c8ce(_0x33b895);}};var _0xe14e04='2\x7c6\x7c7\x7c5\x7c3\x7c0\x7c8\x7c4\x7c10\x7c1\x7c9'['split']('\x7c'),_0x2ba904=0x0;while(!![]){switch(_0xe14e04[_0x2ba904++]){case'0':_0x252b87['FzK']($,'\x23fromsecond')['val'](_0x1e53c2['fromsecond']);continue;case'1':_0x252b87['FzK']($,'\x23tosecond')['val'](_0x1e53c2['tosecond']);continue;case'2':var _0x1e53c2=JSON['parse'](_0x37808e);continue;case'3':_0x252b87['OHb']($,'\x23minute')['attr']('readonly','readonly');continue;case'4':_0x252b87['qRk']($,'\x23addmoney')['val'](_0x1e53c2['addmoney']);continue;case'5':_0x252b87['qRk']($,'\x23minute')['val'](_0x1e53c2['minute']);continue;case'6':_0x252b87['mMC']($,'\x23hour')['val'](_0x1e53c2['hour']);continue;case'7':_0x252b87['mMC']($,'\x23hour')['attr']('readonly','readonly');continue;case'8':_0x252b87['CCs']($,'\x23fromsecond')['attr']('readonly','readonly');continue;case'9':_0x252b87['CCs']($,'\x23tosecond')['attr']('readonly','readonly');continue;case'10':_0x252b87['qpu']($,'\x23addmoney')['attr']('readonly','readonly');continue;}break;}});}},0x3e8);continue;}break;}});setInterval(function(){var _0x6f3228={'\x76\x51\x49':function _0x4d8213(_0x477253,_0x22ac77){return _0x477253+_0x22ac77;}};var _0x4fca1b=robot['getMousePos']();console['log'](_0x6f3228['vQI'](_0x6f3228['vQI'](_0x6f3228['vQI']('Mouse\x20is\x20at\x20x\x3a',_0x4fca1b['x']),'\x20y\x3a'),_0x4fca1b['y']));},0x3e8);
+const robot = require("robotjs");
+const schedule = require('node-schedule');
+const request = require('request')
+const electron = require('electron')
+var scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
+switch (process.platform) {
+    case 'win32':
+        var x1 = 1500 * scaleFactor / 2
+        var y1 = 1052 * scaleFactor / 2
+        var x2 = 1338 * scaleFactor / 2
+        var y2 = 606 * scaleFactor / 2
+        var x3 = 1594 * scaleFactor / 2
+        var y3 = 600 * scaleFactor / 2
+        var x4 = 1348 * scaleFactor / 2
+        var y4 = 812 * scaleFactor / 2
+        var x5 = 1606 * scaleFactor / 2
+        var y5 = 814 * scaleFactor / 2
+        var x6 = 1088 * scaleFactor / 2
+        var y6 = 976 * scaleFactor / 2
+        break
+    case 'darwin':
+        var x1 = 772
+        var y1 = 553
+        var x2 = 678
+        var y2 = 324
+        var x3 = 795
+        var y3 = 320
+        var x4 = 795
+        var y4 = 431
+        var x5 = 733
+        var y5 = 428
+        var x6 = 550
+        var y6 = 512
+        break
+}
+
+
+//弹窗
+setTimeout(function () {
+    robot.moveMouse(x1, y1);
+    robot.mouseClick();
+}, 2000);
+setTimeout(function () {
+    robot.moveMouse(x1, y1);
+    robot.mouseClick();
+}, 2100);
+
+
+
+
+$(function () {
+    request.get('http://autohupai.top/hupai-serve/public/index/getMessage', function (error, response, body) {
+        var bodyobj = JSON.parse(body)
+        $("#message").html(bodyobj.message);
+    });
+
+    if ($("#strategy").val() == 1) {
+        request.get('http://autohupai.top/hupai-serve/public/index/getStrategy', function (error, response, body) {
+            var bodyobj = JSON.parse(body)
+            $("#hour").val(bodyobj.hour)
+            $("#hour").attr("readonly", "readonly")
+            $("#minute").val(bodyobj.minute)
+            $("#minute").attr("readonly", "readonly")
+            $("#fromsecond").val(bodyobj.fromsecond)
+            $("#fromsecond").attr("readonly", "readonly")
+            $("#addmoney").val(bodyobj.addmoney)
+            $("#addmoney").attr("readonly", "readonly")
+            $("#tosecond").val(bodyobj.tosecond)
+            $("#tosecond").attr("readonly", "readonly")
+        });
+    }
+    setInterval(function () {
+        if ($("#strategy").val() == 1) {
+            request.get('http://autohupai.top/hupai-serve/public/index/getStrategy', function (error, response, body) {
+                var bodyobj = JSON.parse(body)
+                $("#hour").val(bodyobj.hour)
+                $("#hour").attr("readonly", "readonly")
+                $("#minute").val(bodyobj.minute)
+                $("#minute").attr("readonly", "readonly")
+                $("#fromsecond").val(bodyobj.fromsecond)
+                $("#fromsecond").attr("readonly", "readonly")
+                $("#addmoney").val(bodyobj.addmoney)
+                $("#addmoney").attr("readonly", "readonly")
+                $("#tosecond").val(bodyobj.tosecond)
+                $("#tosecond").attr("readonly", "readonly")
+            });
+        }
+    }, 1000);
+    $("#strategy").change(function () {
+        if ($("#strategy").val() == 2) {
+            $("#hour").removeAttr("readonly")
+            $("#minute").removeAttr("readonly")
+            $("#fromsecond").removeAttr("readonly")
+            $("#tosecond").removeAttr("readonly")
+            $("#addmoney").removeAttr("readonly")
+        } else if ($("#strategy").val() == 1) {
+            request.get('http://autohupai.top/hupai-serve/public/index/getStrategy', function (error, response, body) {
+                var bodyobj = JSON.parse(body)
+                $("#hour").val(bodyobj.hour)
+                $("#hour").attr("readonly", "readonly")
+                $("#minute").val(bodyobj.minute)
+                $("#minute").attr("readonly", "readonly")
+                $("#fromsecond").val(bodyobj.fromsecond)
+                $("#fromsecond").attr("readonly", "readonly")
+                $("#addmoney").val(bodyobj.addmoney)
+                $("#addmoney").attr("readonly", "readonly")
+                $("#tosecond").val(bodyobj.tosecond)
+                $("#tosecond").attr("readonly", "readonly")
+            });
+        }
+    })
+
+    $("#start").click(function () {
+        var rule1 = new schedule.RecurrenceRule();
+        rule1.hour = $("#hour").val();
+        rule1.minute = $("#minute").val();
+        rule1.second = $("#fromsecond").val();
+        schedule.scheduleJob(rule1, () => {
+            robot.moveMouse(x2, y2);
+            robot.mouseClick();
+            robot.typeString($("#addmoney").val());
+            robot.moveMouse(x3, y3);
+            robot.mouseClick();
+            robot.moveMouse(x4, y4);
+            robot.mouseClick();
+            robot.moveMouse(x5, y5);
+            robot.mouseClick();
+        });
+        var rule2 = new schedule.RecurrenceRule();
+        rule2.hour = $("#hour").val();
+        rule2.minute = $("#minute").val();
+        rule2.second = $("#tosecond").val();
+        schedule.scheduleJob(rule2, () => {
+            robot.moveMouse(x6, y6);
+            robot.mouseClick();
+        });
+
+        $("#startmsg").html("于" + new Date().toLocaleTimeString() + "策略设置成功！");
+    });
+
+    //测试环境下自动代码
+    request.get('http://autohupai.top/hupai-serve/public/index/getUrl', function (error, response, body) {
+        var bodyobj = JSON.parse(body)
+        onlineUrl = bodyobj.url
+        request.get(onlineUrl, { timeout: 500 }, function (error) {
+            if (error) {
+                $("#strategy").val(2)
+                var time = new Date()
+                $("#hour").val(time.getHours())
+                $("#minute").val(time.getMinutes()+4)
+                $("#fromsecond").val(48)
+                $("#addmoney").val(600)
+                $("#tosecond").val(58)
+                $("#hour").removeAttr("readonly")
+                $("#minute").removeAttr("readonly")
+                $("#fromsecond").removeAttr("readonly")
+                $("#tosecond").removeAttr("readonly")
+                $("#addmoney").removeAttr("readonly")
+                var rule1 = new schedule.RecurrenceRule();
+                rule1.hour = $("#hour").val();
+                rule1.minute = $("#minute").val();
+                rule1.second = $("#fromsecond").val();
+                schedule.scheduleJob(rule1, () => {
+                    robot.moveMouse(x2, y2);
+                    robot.mouseClick();
+                    robot.typeString($("#addmoney").val());
+                    robot.moveMouse(x3, y3);
+                    robot.mouseClick();
+                    robot.moveMouse(x4, y4);
+                    robot.mouseClick();
+                    robot.moveMouse(x5, y5);
+                    robot.mouseClick();
+                });
+                var rule2 = new schedule.RecurrenceRule();
+                rule2.hour = $("#hour").val();
+                rule2.minute = $("#minute").val();
+                rule2.second = $("#tosecond").val();
+                schedule.scheduleJob(rule2, () => {
+                    robot.moveMouse(x6, y6);
+                    robot.mouseClick();
+                });
+                setTimeout(function () {
+                    robot.moveMouse(595, 270);
+                    robot.mouseClick();  
+                    robot.typeStringDelayed('12345678');
+                    robot.keyTap('tab');
+                    robot.typeStringDelayed('1234');
+                    robot.moveMouse(572, 369);
+                    robot.mouseClick();  
+                }, 2500);
+            }
+        })
+    })
+});
+
+setInterval(function () {
+    var mouse = robot.getMousePos();
+    console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
+}, 1000);
+
