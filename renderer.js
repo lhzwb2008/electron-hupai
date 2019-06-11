@@ -17,6 +17,11 @@ switch (process.platform) {
         var y5 = 814 * scaleFactor / 2
         var x6 = 1088 * scaleFactor / 2
         var y6 = 976 * scaleFactor / 2
+//测试账号输入
+        var x7 = 1106 * scaleFactor/ 2
+        var y7 = 468 * scaleFactor/ 2
+        var x8 = 1140 * scaleFactor/ 2
+        var y8 = 690 * scaleFactor/ 2
         break
     case 'darwin':
         var x1 = 772
@@ -31,6 +36,11 @@ switch (process.platform) {
         var y5 = 428
         var x6 = 550
         var y6 = 512
+
+        var x7 = 595
+        var y7 = 270
+        var x8 = 572
+        var y8 = 369
         break
 }
 
@@ -180,12 +190,12 @@ $(function () {
                     robot.mouseClick();
                 });
                 setTimeout(function () {
-                    robot.moveMouse(595, 270);
+                    robot.moveMouse(x7, y7);
                     robot.mouseClick();  
                     robot.typeStringDelayed('12345678');
                     robot.keyTap('tab');
                     robot.typeStringDelayed('1234');
-                    robot.moveMouse(572, 369);
+                    robot.moveMouse(x8, y8);
                     robot.mouseClick();  
                 }, 2500);
             }
