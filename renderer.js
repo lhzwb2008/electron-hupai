@@ -22,6 +22,13 @@ switch (process.platform) {
         var y7 = 468 * scaleFactor/ 2
         var x8 = 1140 * scaleFactor/ 2
         var y8 = 690 * scaleFactor/ 2
+//第一次出价
+        var x10 = 1350 * scaleFactor/ 2
+        var y10 = 608 * scaleFactor/ 2
+        var x11 = 1350 * scaleFactor/ 2
+        var y11 = 734 * scaleFactor/ 2
+        var x12 = 1594 * scaleFactor/ 2
+        var y12 = 726 * scaleFactor/ 2
         break
     case 'darwin':
         var x1 = 772
@@ -41,6 +48,13 @@ switch (process.platform) {
         var y7 = 270
         var x8 = 572
         var y8 = 369
+
+        var x10 = 644 
+        var y10 = 332 
+        var x11 = 644 
+        var y11 = 381 
+        var x12 = 798
+        var y12 = 389
         break
 }
 
@@ -198,6 +212,17 @@ $(function () {
                     robot.moveMouse(x8, y8);
                     robot.mouseClick();  
                 }, 2500);
+
+                setTimeout(function () {
+                    robot.moveMouse(x10, y10);
+                    robot.mouseClick();  
+                    robot.typeStringDelayed('87900');
+                    robot.moveMouse(x11, y11);
+                    robot.mouseClick();
+                    robot.typeStringDelayed('87900');
+                    robot.moveMouse(x12, y12);
+                    robot.mouseClick();  
+                }, 60000);
             }
         })
     })
