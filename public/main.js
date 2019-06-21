@@ -60,7 +60,7 @@ function createWindow() {
   // let scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
   // console.log(scaleFactor)
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
