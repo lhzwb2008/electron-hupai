@@ -1,1 +1,120 @@
-const electron=require('electron');const {app,BrowserWindow,BrowserView}=electron;const path=require('path');const request=require('request');let mainWindow;let pluginName;let flashVersion;switch(process['platform']){case'win32':if(process['arch']==='x64'){pluginName='flash/PepperFlashPlayer.dll';}else{pluginName='flash/PepperFlashPlayer.dll';}flashVersion='32.0.0.171';break;case'darwin':pluginName='flash/PepperFlashPlayer.plugin';flashVersion='32.0.0.156';break;case'linux':pluginName='flash/libpepflashplayer.so';break;}app['commandLine']['appendSwitch']('ppapi-flash-path',path['join'](__dirname,pluginName));app['commandLine']['appendSwitch']('ppapi-flash-version',flashVersion);function createWindow(){var _0x520914={'euaZx':'http://test.alltobid.com/moni/gerenlogin.html','bYRnW':'Mozilla/5.0\x20(Macintosh;\x20Intel\x20Mac\x20OS\x20X\x2010_14)\x20AppleWebKit/605.1.15\x20(KHTML,\x20like\x20Gecko)\x20Version/12.0\x20Safari/605.1.15','QOkYJ':'index.html','ksJUc':'closed','rjVjC':'http://autohupai.top/hupai-serve/public/index/getUrl'};mainWindow=new BrowserWindow({'width':0x4b0,'height':0x2d7,'x':0x0,'y':0x0,'movable':![],'resizable':![],'maximizable':![],'minimizable':![],'alwaysOnTop':!![],'fullscreenable':![],'webPreferences':{'plugins':!![],'webSecurity':![],'nodeIntegration':!![]}});mainWindow['setMenu'](null);mainWindow['loadFile'](_0x520914['QOkYJ']);mainWindow['on'](_0x520914['ksJUc'],function(){mainWindow=null;});let _0x3e171c=new BrowserView({'webPreferences':{'nodeIntegration':![],'webSecurity':![],'plugins':!![]}});mainWindow['setBrowserView'](_0x3e171c);_0x3e171c['setBounds']({'x':0x0,'y':0x0,'width':0x384,'height':0x2d7});var _0x1f8c20;request['get'](_0x520914['rjVjC'],function(_0x47a108,_0x1883eb,_0x128da0){var _0x237592=JSON['parse'](_0x128da0);_0x1f8c20=_0x237592['url'];console['log'](_0x1f8c20);});request['get'](_0x1f8c20,{'timeout':0x1f4},function(_0x157674){if(_0x157674){_0x3e171c['webContents']['loadURL'](_0x520914['euaZx'],{'userAgent':_0x520914['bYRnW']});}else{_0x3e171c['webContents']['loadURL'](_0x1f8c20,{'userAgent':_0x520914['bYRnW']});}});}app['on']('ready',createWindow);app['on']('window-all-closed',function(){var _0x170607={'bjmfC':function(_0xe8324d,_0x2a8de3){return _0xe8324d!==_0x2a8de3;},'AVqLf':'darwin'};if(_0x170607['bjmfC'](process['platform'],_0x170607['AVqLf'])){app['quit']();}});app['on']('activate',function(){var _0xf7a78f={'MAPXu':function(_0x58f0ad,_0x1820da){return _0x58f0ad===_0x1820da;},'uRiUc':function(_0x5be9ae){return _0x5be9ae();}};if(_0xf7a78f['MAPXu'](mainWindow,null)){_0xf7a78f['uRiUc'](createWindow);}});
+// Modules to control application life and create native browser window
+const electron = require('electron')
+const { app, BrowserWindow, BrowserView } = electron
+const path = require('path')
+const request = require('request')
+
+
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
+let mainWindow
+let pluginName
+let flashVersion
+switch (process.platform) {
+  case 'win32':
+    if(process.arch === 'x64'){
+      pluginName = 'flash/PepperFlashPlayer.dll'
+    }else{
+      pluginName = 'flash/PepperFlashPlayer.dll'
+    }
+    flashVersion = '32.0.0.171'
+    break
+  case 'darwin':
+    pluginName = 'flash/PepperFlashPlayer.plugin'
+    flashVersion = '32.0.0.156'
+    break
+  case 'linux':
+    pluginName = 'flash/libpepflashplayer.so'
+    break
+}
+app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
+app.commandLine.appendSwitch('ppapi-flash-version', flashVersion)
+
+
+function createWindow() {
+
+  // Create the browser window.
+  mainWindow = new BrowserWindow({
+    width: 1200,
+    height: 727,
+    x: 0,
+    y: 0,
+    movable: false,
+    resizable: false,
+    maximizable: false,
+    minimizable: false,
+    alwaysOnTop:true,
+    fullscreenable: false,
+    webPreferences: {
+      plugins: true,
+      webSecurity: false,
+      nodeIntegration: true
+    }
+  })
+  // and load the index.html of the app.
+  // console.log(mainWindow.getPosition());
+  // and load the index.html of the app.
+  mainWindow.setMenu(null)
+  mainWindow.loadFile('index.html')
+
+  // let scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
+  // console.log(scaleFactor)
+  // Open the DevTools.
+  mainWindow.webContents.openDevTools()
+  // Emitted when the window is closed.
+  mainWindow.on('closed', function () {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null
+  })
+
+
+  let view = new BrowserView({
+    webPreferences: {
+      nodeIntegration: false,
+      webSecurity: false,
+      plugins: true
+    }
+  })
+  mainWindow.setBrowserView(view)
+  view.setBounds({ x: 0, y: 0, width: 900, height: 727 })
+  var onlineUrl
+  request.get('http://autohupai.top/hupai-serve/public/index/getUrl', function (error, response, body) {
+    var bodyobj = JSON.parse(body)
+    onlineUrl = bodyobj.url
+    console.log(onlineUrl)
+  })
+  request.get(onlineUrl, { timeout: 500 }, function (error) {
+    if (error) {
+      view.webContents.loadURL('http://test.alltobid.com/moni/gerenlogin.html', { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
+    } else {
+      view.webContents.loadURL(onlineUrl, { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
+    }
+  })
+} 
+
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
+app.on('ready', createWindow)
+
+// Quit when all windows are closed.
+app.on('window-all-closed', function () {
+  // On OS X it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', function () {
+  // On OS X it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (mainWindow === null) {
+    createWindow()
+  }
+})
+
+// In this file you can include the rest of your app's specific main process
+// code. You can also put them in separate files and require them here.
