@@ -12,9 +12,9 @@ let pluginName
 let flashVersion
 switch (process.platform) {
   case 'win32':
-    if(process.arch === 'x64'){
+    if (process.arch === 'x64') {
       pluginName = 'flash/PepperFlashPlayer.dll'
-    }else{
+    } else {
       pluginName = 'flash/PepperFlashPlayer.dll'
     }
     flashVersion = '32.0.0.171'
@@ -43,7 +43,7 @@ function createWindow() {
     resizable: false,
     maximizable: false,
     minimizable: false,
-    alwaysOnTop:true,
+    // alwaysOnTop: true,
     fullscreenable: false,
     webPreferences: {
       plugins: true,
@@ -82,19 +82,19 @@ function createWindow() {
   // var onlineUrl
   // request.get('http://autohupai.top/hupai-serve/public/index/getUrl', function (error, response, body) {
   //   var bodyobj = JSON.parse(body)
-  //   console.log(bodyobj)
   //   onlineUrl = bodyobj.url
-  //   console.log(onlineUrl)
+  //   request.get(onlineUrl, { timeout: 500 }, function (error1, response1, body1) {
+  //     if (error1) {
+  //       console.dir(error1)
+  //       view.webContents.loadURL('http://test.alltobid.com/moni/gerenlogin.html', { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
+  //     } else {
+  //       view.webContents.loadURL(onlineUrl, { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
+  //     }
+  //   })
   // })
-  // request.get("https://paimai.alltobid.com/", { timeout: 500 }, function (error) {
-  //   console.log(error);
-  //   if (error) {
-  //     view.webContents.loadURL('http://test.alltobid.com/moni/gerenlogin.html', { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
-  //   } else {
-      view.webContents.loadURL('https://paimai2.alltobid.com/bid/b901b3c0ba414c3bb7c08761aedbff50/login.htm', { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
-  //   }
-  // })
-} 
+  view.webContents.loadURL("https://paimai2.alltobid.com/bid/b901b3c0ba414c3bb7c08761aedbff50/login.htm", { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
+
+}
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

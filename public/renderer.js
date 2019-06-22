@@ -31,18 +31,28 @@ switch (process.platform) {
         var y12 = 726 * scaleFactor / 2
         break
     case 'darwin':
-        var x1 = 772
-        var y1 = 553
-        var x2 = 678
-        var y2 = 324
-        var x3 = 795
-        var y3 = 320
-        var x4 = 795
-        var y4 = 431
-        var x5 = 733
-        var y5 = 428
-        var x6 = 550
-        var y6 = 512
+            var x2 = 669
+            var y2 = 362
+            var x3 = 799
+            var y3 = 362
+            var x4 = 799
+            var y4 = 470
+            var x5 = 733
+            var y5 = 467
+            var x6 = 539
+            var y6 = 555
+        // var x1 = 772
+        // var y1 = 553
+        // var x2 = 678
+        // var y2 = 324
+        // var x3 = 795
+        // var y3 = 320
+        // var x4 = 795
+        // var y4 = 431
+        // var x5 = 733
+        // var y5 = 428
+        // var x6 = 550
+        // var y6 = 512
 
         var x7 = 595
         var y7 = 270
@@ -229,7 +239,7 @@ $(function () {
 
 });
 
-// setInterval(function () {
-//     var mouse = robot.getMousePos();
-//     console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
-// }, 1000);
+setInterval(function () {
+    var mouse = robot.getMousePos();
+    console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
+}, 1000);
