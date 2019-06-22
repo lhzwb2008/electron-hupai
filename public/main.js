@@ -79,19 +79,21 @@ function createWindow() {
   })
   mainWindow.setBrowserView(view)
   view.setBounds({ x: 0, y: 0, width: 900, height: 727 })
-  var onlineUrl
-  request.get('http://autohupai.top/hupai-serve/public/index/getUrl', function (error, response, body) {
-    var bodyobj = JSON.parse(body)
-    onlineUrl = bodyobj.url
-    console.log(onlineUrl)
-  })
-  request.get(onlineUrl, { timeout: 500 }, function (error) {
-    if (error) {
-      view.webContents.loadURL('http://test.alltobid.com/moni/gerenlogin.html', { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
-    } else {
-      view.webContents.loadURL(onlineUrl, { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
-    }
-  })
+  // var onlineUrl
+  // request.get('http://autohupai.top/hupai-serve/public/index/getUrl', function (error, response, body) {
+  //   var bodyobj = JSON.parse(body)
+  //   console.log(bodyobj)
+  //   onlineUrl = bodyobj.url
+  //   console.log(onlineUrl)
+  // })
+  // request.get("https://paimai.alltobid.com/", { timeout: 500 }, function (error) {
+  //   console.log(error);
+  //   if (error) {
+  //     view.webContents.loadURL('http://test.alltobid.com/moni/gerenlogin.html', { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
+  //   } else {
+      view.webContents.loadURL('https://paimai2.alltobid.com/bid/b901b3c0ba414c3bb7c08761aedbff50/login.htm', { userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15' })
+  //   }
+  // })
 } 
 
 // This method will be called when Electron has finished

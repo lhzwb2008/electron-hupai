@@ -162,73 +162,74 @@ $(function () {
         $("#startmsg").html("于" + new Date().toLocaleTimeString() + "策略设置成功！");
     });
 
-    //测试环境下自动代码    
-    request.get('http://autohupai.top/hupai-serve/public/index/getUrl', function (error, response, body) {
-        var bodyobj = JSON.parse(body)
-        onlineUrl = bodyobj.url 
-        request.get(onlineUrl, { timeout: 500 }, function (error, response, body) {
-            if (error || response.statusCode != 200) {
-                $("#strategy").val(2)
-                var time = new Date()
-                $("#hour").val(time.getHours())
-                $("#minute").val(time.getMinutes() + 4)
-                $("#fromsecond").val(48)
-                $("#addmoney").val(600)
-                $("#tosecond").val(58)
-                $("#hour").removeAttr("readonly")
-                $("#minute").removeAttr("readonly")
-                $("#fromsecond").removeAttr("readonly")
-                $("#tosecond").removeAttr("readonly")
-                $("#addmoney").removeAttr("readonly")
-                var rule1 = new schedule.RecurrenceRule();
-                rule1.hour = $("#hour").val();
-                rule1.minute = $("#minute").val();
-                rule1.second = $("#fromsecond").val();
-                schedule.scheduleJob(rule1, () => {
-                    robot.moveMouse(x2, y2);
-                    robot.mouseClick();
-                    robot.typeString($("#addmoney").val());
-                    robot.moveMouse(x3, y3);
-                    robot.mouseClick();
-                    robot.moveMouse(x4, y4);
-                    robot.mouseClick();
-                    robot.moveMouse(x5, y5);
-                    robot.mouseClick();
-                });
-                var rule2 = new schedule.RecurrenceRule();
-                rule2.hour = $("#hour").val();
-                rule2.minute = $("#minute").val();
-                rule2.second = $("#tosecond").val();
-                schedule.scheduleJob(rule2, () => {
-                    robot.moveMouse(x6, y6);
-                    robot.mouseClick();
-                });
-                setTimeout(function () {
-                    robot.moveMouse(x7, y7);
-                    robot.mouseClick();
-                    robot.typeStringDelayed('12345678');
-                    robot.keyTap('tab');
-                    robot.typeStringDelayed('1234');
-                    robot.moveMouse(x8, y8);
-                    robot.mouseClick();
-                }, 2500);
+    // //测试环境下自动代码    
+    // request.get('http://autohupai.top/hupai-serve/public/index/getUrl', function (error, response, body) {
+    //     var bodyobj = JSON.parse(body)
+    //     onlineUrl = bodyobj.url 
+    //     request.get(onlineUrl, { timeout: 500 }, function (error, response, body) {
+    //         if (error || response.statusCode != 200) {
+    //             $("#strategy").val(2)
+    //             var time = new Date()
+    //             $("#hour").val(time.getHours())
+    //             $("#minute").val(time.getMinutes() + 4)
+    //             $("#fromsecond").val(48)
+    //             $("#addmoney").val(600)
+    //             $("#tosecond").val(58)
+    //             $("#hour").removeAttr("readonly")
+    //             $("#minute").removeAttr("readonly")
+    //             $("#fromsecond").removeAttr("readonly")
+    //             $("#tosecond").removeAttr("readonly")
+    //             $("#addmoney").removeAttr("readonly")
+    //             var rule1 = new schedule.RecurrenceRule();
+    //             rule1.hour = $("#hour").val();
+    //             rule1.minute = $("#minute").val();
+    //             rule1.second = $("#fromsecond").val();
+    //             schedule.scheduleJob(rule1, () => {
+    //                 robot.moveMouse(x2, y2);
+    //                 robot.mouseClick();
+    //                 robot.typeString($("#addmoney").val());
+    //                 robot.moveMouse(x3, y3);
+    //                 robot.mouseClick();
+    //                 robot.moveMouse(x4, y4);
+    //                 robot.mouseClick();
+    //                 robot.moveMouse(x5, y5);
+    //                 robot.mouseClick();
+    //             });
+    //             var rule2 = new schedule.RecurrenceRule();
+    //             rule2.hour = $("#hour").val();
+    //             rule2.minute = $("#minute").val();
+    //             rule2.second = $("#tosecond").val();
+    //             schedule.scheduleJob(rule2, () => {
+    //                 robot.moveMouse(x6, y6);
+    //                 robot.mouseClick();
+    //             });
+    //             setTimeout(function () {
+    //                 robot.moveMouse(x7, y7);
+    //                 robot.mouseClick();
+    //                 robot.typeStringDelayed('12345678');
+    //                 robot.keyTap('tab');
+    //                 robot.typeStringDelayed('1234');
+    //                 robot.moveMouse(x8, y8);
+    //                 robot.mouseClick();
+    //             }, 2500);
 
-                setTimeout(function () {
-                    robot.moveMouse(x10, y10);
-                    robot.mouseClick();
-                    robot.typeStringDelayed('87900');
-                    robot.moveMouse(x11, y11);
-                    robot.mouseClick();
-                    robot.typeStringDelayed('87900');
-                    robot.moveMouse(x12, y12);
-                    robot.mouseClick();
-                }, 60000);
-            }
-        })
-    })
+    //             setTimeout(function () {
+    //                 robot.moveMouse(x10, y10);
+    //                 robot.mouseClick();
+    //                 robot.typeStringDelayed('87900');
+    //                 robot.moveMouse(x11, y11);
+    //                 robot.mouseClick();
+    //                 robot.typeStringDelayed('87900');
+    //                 robot.moveMouse(x12, y12);
+    //                 robot.mouseClick();
+    //             }, 60000);
+    //         }
+    //     })
+    // })
+
 });
 
-setInterval(function () {
-    var mouse = robot.getMousePos();
-    console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
-}, 1000);
+// setInterval(function () {
+//     var mouse = robot.getMousePos();
+//     console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
+// }, 1000);
