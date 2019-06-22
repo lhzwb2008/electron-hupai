@@ -5,8 +5,19 @@ const electron = require('electron')
 var scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
 switch (process.platform) {
     case 'win32':
-        var x1 = 1500 * scaleFactor / 2
-        var y1 = 1052 * scaleFactor / 2
+        // var x1 = 1500 * scaleFactor / 2
+        // var y1 = 1052 * scaleFactor / 2
+        // var x2 = 1338 * scaleFactor / 2
+        // var y2 = 606 * scaleFactor / 2
+        // var x3 = 1594 * scaleFactor / 2
+        // var y3 = 600 * scaleFactor / 2
+        // var x4 = 1348 * scaleFactor / 2
+        // var y4 = 812 * scaleFactor / 2
+        // var x5 = 1606 * scaleFactor / 2
+        // var y5 = 814 * scaleFactor / 2
+        // var x6 = 1088 * scaleFactor / 2
+        // var y6 = 976 * scaleFactor / 2
+
         var x2 = 1338 * scaleFactor / 2
         var y2 = 606 * scaleFactor / 2
         var x3 = 1594 * scaleFactor / 2
