@@ -47,6 +47,34 @@ function getXY() {
     }
 }
 
+function setClick() {
+    getXY();
+    var rule1 = new schedule.RecurrenceRule();
+    rule1.hour = $("#hour").val();
+    rule1.minute = $("#minute").val();
+    rule1.second = $("#fromsecond").val();
+    schedule.scheduleJob(rule1, () => {
+        robot.moveMouse(x2, y2);
+        robot.mouseClick();
+        robot.typeString($("#addmoney").val());
+        robot.moveMouse(x3, y3);
+        robot.mouseClick();
+        robot.moveMouse(x4, y4);
+        robot.mouseClick();
+        robot.moveMouse(x5, y5);
+        robot.mouseClick();
+    });
+    var rule2 = new schedule.RecurrenceRule();
+    rule2.hour = $("#hour").val();
+    rule2.minute = $("#minute").val();
+    rule2.second = $("#tosecond").val();
+    schedule.scheduleJob(rule2, () => {
+        robot.moveMouse(x6, y6);
+        robot.mouseClick();
+    });
+    $("#startmsg").html("于" + new Date().toLocaleTimeString() + "策略设置成功！");
+}
+
 
 getXY();
 
@@ -67,20 +95,6 @@ $(function () {
     request.get('http://autohupai.top/hupai-serve/public/index/getMessage', function (error, response, body) {
         var bodyobj = JSON.parse(body)
         $("#message").html(bodyobj.message);
-    });
-
-    request.get('http://autohupai.top/hupai-serve/public/index/getStrategy?id=1', function (error, response, body) {
-        var bodyobj = JSON.parse(body)
-        $("#hour").val(bodyobj.hour)
-        $("#hour").attr("readonly", "readonly")
-        $("#minute").val(bodyobj.minute)
-        $("#minute").attr("readonly", "readonly")
-        $("#fromsecond").val(bodyobj.fromsecond)
-        $("#fromsecond").attr("readonly", "readonly")
-        $("#addmoney").val(bodyobj.addmoney)
-        $("#addmoney").attr("readonly", "readonly")
-        $("#tosecond").val(bodyobj.tosecond)
-        $("#tosecond").attr("readonly", "readonly")
     });
 
     $("#strategy").change(function () {
@@ -152,58 +166,31 @@ $(function () {
             $("#fromsecond").removeAttr("readonly")
             $("#tosecond").removeAttr("readonly")
             $("#addmoney").removeAttr("readonly")
-            var rule1 = new schedule.RecurrenceRule();
-            rule1.hour = $("#hour").val();
-            rule1.minute = $("#minute").val();
-            rule1.second = $("#fromsecond").val();
-            schedule.scheduleJob(rule1, () => {
-                robot.moveMouse(x2, y2);
-                robot.mouseClick();
-                robot.typeString($("#addmoney").val());
-                robot.moveMouse(x3, y3);
-                robot.mouseClick();
-                robot.moveMouse(x4, y4);
-                robot.mouseClick();
-                robot.moveMouse(x5, y5);
-                robot.mouseClick();
+            getXY();
+            setClick();
+        } else {
+            $("#strategy").val(1)
+            request.get('http://autohupai.top/hupai-serve/public/index/getStrategy?id=1', function (error, response, body) {
+                var bodyobj = JSON.parse(body)
+                $("#hour").val(bodyobj.hour)
+                $("#hour").attr("readonly", "readonly")
+                $("#minute").val(bodyobj.minute)
+                $("#minute").attr("readonly", "readonly")
+                $("#fromsecond").val(bodyobj.fromsecond)
+                $("#fromsecond").attr("readonly", "readonly")
+                $("#addmoney").val(bodyobj.addmoney)
+                $("#addmoney").attr("readonly", "readonly")
+                $("#tosecond").val(bodyobj.tosecond)
+                $("#tosecond").attr("readonly", "readonly")
             });
-            var rule2 = new schedule.RecurrenceRule();
-            rule2.hour = $("#hour").val();
-            rule2.minute = $("#minute").val();
-            rule2.second = $("#tosecond").val();
-            schedule.scheduleJob(rule2, () => {
-                robot.moveMouse(x6, y6);
-                robot.mouseClick();
-            });
+            getXY();
+            setClick();
         }
     })
 
     $("#start").click(function () {
         getXY();
-        var rule1 = new schedule.RecurrenceRule();
-        rule1.hour = $("#hour").val();
-        rule1.minute = $("#minute").val();
-        rule1.second = $("#fromsecond").val();
-        schedule.scheduleJob(rule1, () => {
-            robot.moveMouse(x2, y2);
-            robot.mouseClick();
-            robot.typeString($("#addmoney").val());
-            robot.moveMouse(x3, y3);
-            robot.mouseClick();
-            robot.moveMouse(x4, y4);
-            robot.mouseClick();
-            robot.moveMouse(x5, y5);
-            robot.mouseClick();
-        });
-        var rule2 = new schedule.RecurrenceRule();
-        rule2.hour = $("#hour").val();
-        rule2.minute = $("#minute").val();
-        rule2.second = $("#tosecond").val();
-        schedule.scheduleJob(rule2, () => {
-            robot.moveMouse(x6, y6);
-            robot.mouseClick();
-        });
-        $("#startmsg").html("于" + new Date().toLocaleTimeString() + "策略设置成功！");
+        setClick();
     });
 });
 
