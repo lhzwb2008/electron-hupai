@@ -5,8 +5,7 @@ const electron = require('electron')
 var scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
 var x1, x2, x3, x4, x5, x6, y1, y2, y3, y4, y5, y6
 
-function getXY()
-{   
+function getXY() {
     console.log('run getXY...');
     switch (process.platform) {
         case 'win32':
@@ -70,7 +69,7 @@ $(function () {
         $("#message").html(bodyobj.message);
     });
 
-    request.get('http://autohupai.top/hupai-serve/public/index/getStrategy', function (error, response, body) {
+    request.get('http://autohupai.top/hupai-serve/public/index/getStrategy?id=1', function (error, response, body) {
         var bodyobj = JSON.parse(body)
         $("#hour").val(bodyobj.hour)
         $("#hour").attr("readonly", "readonly")
@@ -83,16 +82,44 @@ $(function () {
         $("#tosecond").val(bodyobj.tosecond)
         $("#tosecond").attr("readonly", "readonly")
     });
-    
+
     $("#strategy").change(function () {
-        if ($("#strategy").val() == 2) {
+        if ($("#strategy").val() == 0) {
             $("#hour").removeAttr("readonly")
             $("#minute").removeAttr("readonly")
             $("#fromsecond").removeAttr("readonly")
             $("#tosecond").removeAttr("readonly")
             $("#addmoney").removeAttr("readonly")
         } else if ($("#strategy").val() == 1) {
-            request.get('http://autohupai.top/hupai-serve/public/index/getStrategy', function (error, response, body) {
+            request.get('http://autohupai.top/hupai-serve/public/index/getStrategy?id=1', function (error, response, body) {
+                var bodyobj = JSON.parse(body)
+                $("#hour").val(bodyobj.hour)
+                $("#hour").attr("readonly", "readonly")
+                $("#minute").val(bodyobj.minute)
+                $("#minute").attr("readonly", "readonly")
+                $("#fromsecond").val(bodyobj.fromsecond)
+                $("#fromsecond").attr("readonly", "readonly")
+                $("#addmoney").val(bodyobj.addmoney)
+                $("#addmoney").attr("readonly", "readonly")
+                $("#tosecond").val(bodyobj.tosecond)
+                $("#tosecond").attr("readonly", "readonly")
+            });
+        } else if ($("#strategy").val() == 2) {
+            request.get('http://autohupai.top/hupai-serve/public/index/getStrategy?id=2', function (error, response, body) {
+                var bodyobj = JSON.parse(body)
+                $("#hour").val(bodyobj.hour)
+                $("#hour").attr("readonly", "readonly")
+                $("#minute").val(bodyobj.minute)
+                $("#minute").attr("readonly", "readonly")
+                $("#fromsecond").val(bodyobj.fromsecond)
+                $("#fromsecond").attr("readonly", "readonly")
+                $("#addmoney").val(bodyobj.addmoney)
+                $("#addmoney").attr("readonly", "readonly")
+                $("#tosecond").val(bodyobj.tosecond)
+                $("#tosecond").attr("readonly", "readonly")
+            });
+        } else if ($("#strategy").val() == 3) {
+            request.get('http://autohupai.top/hupai-serve/public/index/getStrategy?id=3', function (error, response, body) {
                 var bodyobj = JSON.parse(body)
                 $("#hour").val(bodyobj.hour)
                 $("#hour").attr("readonly", "readonly")
@@ -112,42 +139,42 @@ $(function () {
     request.get('http://autohupai.top/hupai-serve/public/index/isOnline', function (error, response, body) {
         var bodyobj = JSON.parse(body)
         isOnline = bodyobj.isOnline;
-        if(!isOnline){
-            $("#strategy").val(2)
-                var time = new Date()
-                $("#hour").val(time.getHours())
-                $("#minute").val(time.getMinutes() + 4)
-                $("#fromsecond").val(48)
-                $("#addmoney").val(600)
-                $("#tosecond").val(58)
-                $("#hour").removeAttr("readonly")
-                $("#minute").removeAttr("readonly")
-                $("#fromsecond").removeAttr("readonly")
-                $("#tosecond").removeAttr("readonly")
-                $("#addmoney").removeAttr("readonly")
-                var rule1 = new schedule.RecurrenceRule();
-                rule1.hour = $("#hour").val();
-                rule1.minute = $("#minute").val();
-                rule1.second = $("#fromsecond").val();
-                schedule.scheduleJob(rule1, () => {
-                    robot.moveMouse(x2, y2);
-                    robot.mouseClick();
-                    robot.typeString($("#addmoney").val());
-                    robot.moveMouse(x3, y3);
-                    robot.mouseClick();
-                    robot.moveMouse(x4, y4);
-                    robot.mouseClick();
-                    robot.moveMouse(x5, y5);
-                    robot.mouseClick();
-                });
-                var rule2 = new schedule.RecurrenceRule();
-                rule2.hour = $("#hour").val();
-                rule2.minute = $("#minute").val();
-                rule2.second = $("#tosecond").val();
-                schedule.scheduleJob(rule2, () => {
-                    robot.moveMouse(x6, y6);
-                    robot.mouseClick();
-                });
+        if (!isOnline) {
+            $("#strategy").val(0)
+            var time = new Date()
+            $("#hour").val(time.getHours())
+            $("#minute").val(time.getMinutes() + 4)
+            $("#fromsecond").val(48)
+            $("#addmoney").val(600)
+            $("#tosecond").val(58)
+            $("#hour").removeAttr("readonly")
+            $("#minute").removeAttr("readonly")
+            $("#fromsecond").removeAttr("readonly")
+            $("#tosecond").removeAttr("readonly")
+            $("#addmoney").removeAttr("readonly")
+            var rule1 = new schedule.RecurrenceRule();
+            rule1.hour = $("#hour").val();
+            rule1.minute = $("#minute").val();
+            rule1.second = $("#fromsecond").val();
+            schedule.scheduleJob(rule1, () => {
+                robot.moveMouse(x2, y2);
+                robot.mouseClick();
+                robot.typeString($("#addmoney").val());
+                robot.moveMouse(x3, y3);
+                robot.mouseClick();
+                robot.moveMouse(x4, y4);
+                robot.mouseClick();
+                robot.moveMouse(x5, y5);
+                robot.mouseClick();
+            });
+            var rule2 = new schedule.RecurrenceRule();
+            rule2.hour = $("#hour").val();
+            rule2.minute = $("#minute").val();
+            rule2.second = $("#tosecond").val();
+            schedule.scheduleJob(rule2, () => {
+                robot.moveMouse(x6, y6);
+                robot.mouseClick();
+            });
         }
     })
 
