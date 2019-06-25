@@ -68,9 +68,11 @@ function setClick() {
     rule2.hour = $("#hour").val();
     rule2.minute = $("#minute").val();
     rule2.second = $("#tosecond").val();
-    schedule.scheduleJob(rule2, () => {
-        robot.moveMouse(x6, y6);
-        robot.mouseClick();
+    schedule.scheduleJob(rule2, () => { 
+         setTimeout(function () {
+            robot.moveMouse(x6, y6);
+            robot.mouseClick();;
+        }, $("#ms").val());
     });
     $("#startmsg").html("于" + new Date().toLocaleTimeString() + "策略设置成功！");
 }
@@ -104,6 +106,7 @@ $(function () {
             $("#fromsecond").removeAttr("readonly")
             $("#tosecond").removeAttr("readonly")
             $("#addmoney").removeAttr("readonly")
+            $("#ms").removeAttr("readonly")
         } else if ($("#strategy").val() == 1) {
             request.get('http://autohupai.top/hupai-serve/public/index/getStrategy?id=1', function (error, response, body) {
                 var bodyobj = JSON.parse(body)
@@ -117,6 +120,8 @@ $(function () {
                 $("#addmoney").attr("readonly", "readonly")
                 $("#tosecond").val(bodyobj.tosecond)
                 $("#tosecond").attr("readonly", "readonly")
+                $("#ms").val(bodyobj.ms)
+                $("#ms").attr("readonly", "readonly")
             });
         } else if ($("#strategy").val() == 2) {
             request.get('http://autohupai.top/hupai-serve/public/index/getStrategy?id=2', function (error, response, body) {
@@ -131,6 +136,8 @@ $(function () {
                 $("#addmoney").attr("readonly", "readonly")
                 $("#tosecond").val(bodyobj.tosecond)
                 $("#tosecond").attr("readonly", "readonly")
+                $("#ms").val(bodyobj.ms)
+                $("#ms").attr("readonly", "readonly")
             });
         } else if ($("#strategy").val() == 3) {
             request.get('http://autohupai.top/hupai-serve/public/index/getStrategy?id=3', function (error, response, body) {
@@ -145,6 +152,8 @@ $(function () {
                 $("#addmoney").attr("readonly", "readonly")
                 $("#tosecond").val(bodyobj.tosecond)
                 $("#tosecond").attr("readonly", "readonly")
+                $("#ms").val(bodyobj.ms)
+                $("#ms").attr("readonly", "readonly")
             });
         }
     })
@@ -166,6 +175,7 @@ $(function () {
             $("#fromsecond").removeAttr("readonly")
             $("#tosecond").removeAttr("readonly")
             $("#addmoney").removeAttr("readonly")
+            $("#ms").removeAttr("readonly")
             getXY();
             setClick();
         } else {
@@ -182,6 +192,8 @@ $(function () {
                 $("#addmoney").attr("readonly", "readonly")
                 $("#tosecond").val(bodyobj.tosecond)
                 $("#tosecond").attr("readonly", "readonly")
+                $("#ms").val(bodyobj.ms)
+                $("#ms").attr("readonly", "readonly")
             });
             getXY();
             setClick();
