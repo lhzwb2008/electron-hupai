@@ -4,6 +4,7 @@ const request = require('request')
 const electron = require('electron')
 var scaleFactor = electron.screen.getPrimaryDisplay().scaleFactor
 var x1, x2, x3, x4, x5, x6, y1, y2, y3, y4, y5, y6
+var job1,job2;
 
 function getXY() {
     console.log('run getXY...');
@@ -49,11 +50,18 @@ function getXY() {
 
 function setClick() {
     getXY();
-    var rule1 = new schedule.RecurrenceRule();
+    if(job1){
+        job1.cancel();
+    }
+    if(job2){
+        job2.cancel();
+    }
+    rule1 = new schedule.RecurrenceRule();
     rule1.hour = $("#hour").val();
     rule1.minute = $("#minute").val();
     rule1.second = $("#fromsecond").val();
-    schedule.scheduleJob(rule1, () => {
+    job1 = schedule.scheduleJob(rule1, () => {
+        console.log('run job1');
         robot.moveMouse(x2, y2);
         robot.mouseClick();
         robot.typeString($("#addmoney").val());
@@ -64,11 +72,12 @@ function setClick() {
         robot.moveMouse(x5, y5);
         robot.mouseClick();
     });
-    var rule2 = new schedule.RecurrenceRule();
+    rule2 = new schedule.RecurrenceRule();
     rule2.hour = $("#hour").val();
     rule2.minute = $("#minute").val();
     rule2.second = $("#tosecond").val();
-    schedule.scheduleJob(rule2, () => { 
+    job2 = schedule.scheduleJob(rule2, () => { 
+        console.log('run job2');
          setTimeout(function () {
             robot.moveMouse(x6, y6);
             robot.mouseClick();;
