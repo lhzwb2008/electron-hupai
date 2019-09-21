@@ -147,7 +147,7 @@ $(function () {
         var bodyobj = JSON.parse(body)
         isOnline = bodyobj.isOnline;
         if (!isOnline) {
-            $("#strategy").val(0)
+            $("#strategy").val(1)
             var time = new Date()
             $("#hour").val(time.getHours())
             $("#minute").val(time.getMinutes() + 4)
