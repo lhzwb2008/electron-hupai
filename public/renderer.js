@@ -109,60 +109,35 @@ $(function () {
     });
 
     $("#strategy").change(function () {
-        if ($("#strategy").val() == 0) {
-            $("#hour").removeAttr("readonly")
-            $("#minute").removeAttr("readonly")
-            $("#fromsecond").removeAttr("readonly")
-            $("#tosecond").removeAttr("readonly")
-            $("#addmoney").removeAttr("readonly")
-            $("#ms").removeAttr("readonly")
-        } else if ($("#strategy").val() == 1) {
+        if ($("#strategy").val() == 1) {
             request.get('http://autohupai.top/hupai-serve/public/index/getStrategy?id=1', function (error, response, body) {
                 var bodyobj = JSON.parse(body)
                 $("#hour").val(bodyobj.hour)
-                $("#hour").attr("readonly", "readonly")
                 $("#minute").val(bodyobj.minute)
-                $("#minute").attr("readonly", "readonly")
                 $("#fromsecond").val(bodyobj.fromsecond)
-                $("#fromsecond").attr("readonly", "readonly")
                 $("#addmoney").val(bodyobj.addmoney)
-                $("#addmoney").attr("readonly", "readonly")
                 $("#tosecond").val(bodyobj.tosecond)
-                $("#tosecond").attr("readonly", "readonly")
                 $("#ms").val(bodyobj.ms)
-                $("#ms").attr("readonly", "readonly")
             });
         } else if ($("#strategy").val() == 2) {
             request.get('http://autohupai.top/hupai-serve/public/index/getStrategy?id=2', function (error, response, body) {
                 var bodyobj = JSON.parse(body)
                 $("#hour").val(bodyobj.hour)
-                $("#hour").attr("readonly", "readonly")
                 $("#minute").val(bodyobj.minute)
-                $("#minute").attr("readonly", "readonly")
                 $("#fromsecond").val(bodyobj.fromsecond)
-                $("#fromsecond").attr("readonly", "readonly")
                 $("#addmoney").val(bodyobj.addmoney)
-                $("#addmoney").attr("readonly", "readonly")
                 $("#tosecond").val(bodyobj.tosecond)
-                $("#tosecond").attr("readonly", "readonly")
                 $("#ms").val(bodyobj.ms)
-                $("#ms").attr("readonly", "readonly")
             });
         } else if ($("#strategy").val() == 3) {
             request.get('http://autohupai.top/hupai-serve/public/index/getStrategy?id=3', function (error, response, body) {
                 var bodyobj = JSON.parse(body)
                 $("#hour").val(bodyobj.hour)
-                $("#hour").attr("readonly", "readonly")
                 $("#minute").val(bodyobj.minute)
-                $("#minute").attr("readonly", "readonly")
                 $("#fromsecond").val(bodyobj.fromsecond)
-                $("#fromsecond").attr("readonly", "readonly")
                 $("#addmoney").val(bodyobj.addmoney)
-                $("#addmoney").attr("readonly", "readonly")
                 $("#tosecond").val(bodyobj.tosecond)
-                $("#tosecond").attr("readonly", "readonly")
                 $("#ms").val(bodyobj.ms)
-                $("#ms").attr("readonly", "readonly")
             });
         }
     })
@@ -179,12 +154,6 @@ $(function () {
             $("#fromsecond").val(48)
             $("#addmoney").val(600)
             $("#tosecond").val(58)
-            $("#hour").removeAttr("readonly")
-            $("#minute").removeAttr("readonly")
-            $("#fromsecond").removeAttr("readonly")
-            $("#tosecond").removeAttr("readonly")
-            $("#addmoney").removeAttr("readonly")
-            $("#ms").removeAttr("readonly")
             getXY();
             setClick();
         } else {
@@ -192,17 +161,11 @@ $(function () {
             request.get('http://autohupai.top/hupai-serve/public/index/getStrategy?id=1', function (error, response, body) {
                 var bodyobj = JSON.parse(body)
                 $("#hour").val(bodyobj.hour)
-                $("#hour").attr("readonly", "readonly")
                 $("#minute").val(bodyobj.minute)
-                $("#minute").attr("readonly", "readonly")
                 $("#fromsecond").val(bodyobj.fromsecond)
-                $("#fromsecond").attr("readonly", "readonly")
                 $("#addmoney").val(bodyobj.addmoney)
-                $("#addmoney").attr("readonly", "readonly")
                 $("#tosecond").val(bodyobj.tosecond)
-                $("#tosecond").attr("readonly", "readonly")
                 $("#ms").val(bodyobj.ms)
-                $("#ms").attr("readonly", "readonly")
             });
             getXY();
             setClick();
